@@ -35,4 +35,10 @@ More info: [Generating](https://hexo.io/docs/generating.html)
 $ hexo deploy
 ```
 
+```
+参考博客：https://blog.csdn.net/gdutxiaoxu/article/details/53576018
+注意在配置的时候，type：git 这个不要漏掉了，否则没有什么问题，也没有发布上去
+
+```
+
 More info: [Deployment](https://hexo.io/docs/deployment.html)
