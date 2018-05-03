@@ -14,13 +14,13 @@
 <meta property="og:site_name" content="技术挖坑">
 <meta property="og:description" content="ffmpeg 的编译 与命令行工具 1、 ffmpeg (fast forward MPEG)【mpeg 是编码的标准】提供了一套可以用来记录、处理数字音频、视频，并将其转换为流的开源框架；提供了录制，转换以及流音视频的完整解决方案。 ffmpeg 结构图 ffmpeg可以通过源码进行编译生成， 一般都是符合GUN的软件方式配置；mac 上也是可以直接通过打包好的文件进行安装。 123456789">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="http://yoursite.com/2018/imgs/2018_5_3/Snip20180503_1.png">
-<meta property="og:image" content="http://yoursite.com/2018/imgs/2018_5_3/Snip20180503_2.png">
-<meta property="og:updated_time" content="2018-05-03T16:04:24.735Z">
+<meta property="og:image" content="http://yoursite.com/2018/05/03/ffmpeg-了解/Snip20180503_1.png">
+<meta property="og:image" content="http://yoursite.com/2018/05/03/ffmpeg-了解/Snip20180503_2.png">
+<meta property="og:updated_time" content="2018-05-03T16:09:39.522Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ffmpeg 了解">
 <meta name="twitter:description" content="ffmpeg 的编译 与命令行工具 1、 ffmpeg (fast forward MPEG)【mpeg 是编码的标准】提供了一套可以用来记录、处理数字音频、视频，并将其转换为流的开源框架；提供了录制，转换以及流音视频的完整解决方案。 ffmpeg 结构图 ffmpeg可以通过源码进行编译生成， 一般都是符合GUN的软件方式配置；mac 上也是可以直接通过打包好的文件进行安装。 123456789">
-<meta name="twitter:image" content="http://yoursite.com/2018/imgs/2018_5_3/Snip20180503_1.png">
+<meta name="twitter:image" content="http://yoursite.com/2018/05/03/ffmpeg-了解/Snip20180503_1.png">
   
     <link rel="alternate" href="/atom.xml" title="技术挖坑" type="application/atom+xml">
   
@@ -95,11 +95,11 @@
       
         <p>ffmpeg 的编译 与命令行工具</p>
 <p>1、 ffmpeg (fast forward MPEG)【mpeg 是编码的标准】<br>提供了一套可以用来记录、处理数字音频、视频，并将其转换为流的开源框架；提供了录制，转换以及流音视频的完整解决方案。</p>
-<p>ffmpeg 结构图<br><img src="../../../imgs/2018_5_3/Snip20180503_1.png" alt="ffmpeg 模块之间的结构"></p>
+<p>ffmpeg 结构图<br><img src="./Snip20180503_1.png" alt="ffmpeg 模块之间的结构"></p>
 <p>ffmpeg可以通过源码进行编译生成， 一般都是符合GUN的软件方式配置；<br>mac 上也是可以直接通过打包好的文件进行安装。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">默认的编译生成：</span><br><span class="line">4个可执行文件和8个静态库，</span><br><span class="line">可执行文件： </span><br><span class="line">1）转码、推流、Dump媒体文件的ffmpeg</span><br><span class="line">2）用于播放媒体文件的ffplay</span><br><span class="line">3）用于获取媒体文件信息的ffprobe</span><br><span class="line">4）作为简单流媒体服务器的ffserver</span><br><span class="line"></span><br><span class="line">8个静态库（ffmpeg的8个模块）</span><br><span class="line">AVUtil ：核心工具库</span><br><span class="line">AVFormat ： 文件格式和协议库</span><br><span class="line">AVCodec： 编解码库</span><br><span class="line">AVFilter： 音视频滤镜库</span><br><span class="line">AVDevice： 输入和输出设备库</span><br><span class="line">SwrRessample： 用于音视频重采样</span><br><span class="line">SWSScale ： 将图像进行格式转换模块</span><br><span class="line">PostProc： 用于进行后台处理</span><br></pre></td></tr></table></figure>
 <p>ffmpeg 命令行工具的使用<br>客户单： ffmpeg /ffplay /ffprobe<br>服务器： ffserver</p>
-<p>1、ffprobe<br><img src="../../../imgs/2018_5_3/Snip20180503_2.png" alt="示例：查看一首歌的信息如下"></p>
+<p>1、ffprobe<br><img src="./Snip20180503_2.png" alt="示例：查看一首歌的信息如下"></p>
 
       
     </div>
