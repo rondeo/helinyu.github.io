@@ -7,18 +7,21 @@
   
   <title>iOS 杂烩 | 技术挖坑</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS 跳转到app store">
+  <meta name="description" content="iOS 跳转到app store 有关container View的使用，就是子视图和父视图之间的关系，注意addchildContainer 的使用[container view 上面的实现](https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ImplementingaCont">
 <meta name="keywords" content="ios 杂烩">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 杂烩">
 <meta property="og:url" content="http://yoursite.com/2018/07/03/iOS-杂烩/index.html">
 <meta property="og:site_name" content="技术挖坑">
-<meta property="og:description" content="iOS 跳转到app store">
-<meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-07-03T09:45:06.371Z">
+<meta property="og:description" content="iOS 跳转到app store 有关container View的使用，就是子视图和父视图之间的关系，注意addchildContainer 的使用[container view 上面的实现](https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ImplementingaCont">
+<meta property="og:locale" content="中文">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/asset/Snip20180703_25.png">
+<meta property="og:image" content="http://yoursite.com/2018/07/03/asset/Snip20180703_27.png">
+<meta property="og:updated_time" content="2018-07-03T10:24:37.945Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 杂烩">
-<meta name="twitter:description" content="iOS 跳转到app store">
+<meta name="twitter:description" content="iOS 跳转到app store 有关container View的使用，就是子视图和父视图之间的关系，注意addchildContainer 的使用[container view 上面的实现](https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ImplementingaCont">
+<meta name="twitter:image" content="http://yoursite.com/2018/07/03/asset/Snip20180703_25.png">
   
     <link rel="alternate" href="/atom.xml" title="技术挖坑" type="application/atom+xml">
   
@@ -91,8 +94,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="https://www.jianshu.com/p/d81a0ca7b149" target="_blank" rel="noopener">iOS 跳转到app store</a>
- </p>
+        <p><a href="https://www.jianshu.com/p/d81a0ca7b149" target="_blank" rel="noopener">iOS 跳转到app store</a><br> <br>有关container View的使用，就是子视图和父视图之间的关系，注意addchildContainer 的使用<br>[container view 上面的实现](<a href="https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ImplementingaContainerViewController.html" target="_blank" rel="noopener">https://developer.apple.com/library/ios/featuredarticles/ViewControllerPGforiPhoneOS/ImplementingaContainerViewController.html</a></p>
+<p>使用一些静态稳定的列表的时候，可以适应静态的tableviewcontroller的方法</p>
+<p>2.ios app 打包<br>1）target 上设置为generic for evice<br>2)在info.plist 文件中设置build的版本，没打一次，都要进行加1<br>3)produt –&gt;archive<br>4）设置要打包的目的 （有4个选项） ，然后可以到处对应ipa文件用于上传，</p>
+<p>当然，也有设置自动化打包的fastlane 的配置, 也可以使用jenkins 来进行配置<br><a href="http://www.cocoachina.com/ios/20180301/22406.html" target="_blank" rel="noopener">自动化打包上线</a></p>
+<p>好像苹果的内容基本的上现在都喜欢添加-上一个预处理的属性，偏好的设置；预处理；<br>@property (nonatomic, strong, nullable) UIAlertAction *preferredAction NS_AVAILABLE_IOS(9_0);<br>应该是设置相册图片上面的内容；<br>还可以通过图片拍照，UIimagePickerController 子能够present的方式：<br><img src="../asset/Snip20180703_25.png" alt="系统相册只能够present的方式，不能够push的方式"> 因为本来就没有navigation的；</p>
+<p>基本上都是ios 8 之后的内容，我们应该是通过协议phAsset的内容来进行替换TZImagePickerController 的类；</p>
+<p><a href="http://www.cocoachina.com/ios/20150714/12558.html" target="_blank" rel="noopener">http://www.cocoachina.com/ios/20150714/12558.html</a><br>分屏的处理以及功能和如何使用；</p>
+<p><a href="http://blog.csdn.net/u010731949/article/details/50439705" target="_blank" rel="noopener">http://blog.csdn.net/u010731949/article/details/50439705</a><br>画中画</p>
+<p><a href="http://www.askamathematician.com/2012/09/q-what-is-a-fourier-transform-what-is-it-used-for/" target="_blank" rel="noopener">http://www.askamathematician.com/2012/09/q-what-is-a-fourier-transform-what-is-it-used-for/</a><br>傅里叶变换</p>
+<p>给mac进行配置不同的网络环境，因为苹果电脑不会自动搜索使用合适的dns的IP，它只是会使用配置的第一个，其他的都是不可以使用的；所以这里可以配置多个网络<br><img src="../asset/Snip20180703_27.png" alt="给mac配置不同的网络"></p>
+<p>ios上实现广告的类，管理app的为唯一 的一个标示符；<br><a href="https://blog.csdn.net/xiaohei5188/article/details/12651353" target="_blank" rel="noopener">广告类</a><br><a href="http://hongjiang.info/mac-os-disable-internet-access/" target="_blank" rel="noopener">mac 上网络的脚本配置</a><br><a href="http://devework.com/automatic-proxy-configuration-pac-applescript.html" target="_blank" rel="noopener">apple script 上的脚本配置</a></p>
 
       
     </div>
