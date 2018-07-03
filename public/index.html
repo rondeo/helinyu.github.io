@@ -38,7 +38,7 @@
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">脚踏实地</a>
+          <a href="/" id="subtitle">凡心所向，素履可往</a>
         </h2>
       
     </div>
@@ -65,6 +65,146 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-iOS-杂烩" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/03/iOS-杂烩/" class="article-date">
+  <time datetime="2018-07-03T09:43:48.000Z" itemprop="datePublished">2018-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/03/iOS-杂烩/">iOS 杂烩</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a href="https://www.jianshu.com/p/d81a0ca7b149" target="_blank" rel="noopener">iOS 跳转到app store</a>
+ </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/03/iOS-杂烩/" data-id="cjj5iac7b0003ynoj4q3kvblu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ios-杂烩/">ios 杂烩</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iOS启动页面以及开屏广告" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/03/iOS启动页面以及开屏广告/" class="article-date">
+  <time datetime="2018-07-03T09:23:05.000Z" itemprop="datePublished">2018-07-03</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/03/iOS启动页面以及开屏广告/">iOS启动页面以及开屏广告</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>我们经常看到lanchScreen.xib 文件就是一个启动页面;<br>如果要实现动态的或者短视频的广告页面，就需要使用到 多个View 来实现或者说说是vc来定义展示时间，添加在keywindow上面；<br>参考链接：<br><a href="http://stackoverflow.com/questions/31881645/xcode-7-launch-screens-may-not-set-custom-classnames" target="_blank" rel="noopener">启动页面bug解析</a><br><a href="http://blog.csdn.net/yishengzhiai005/article/details/51135282" target="_blank" rel="noopener">启动页面图片没有加出来</a></p>
+<p>iOS app上面的启动页面的广告：<br>（主要是在在当前启动的时候，就在keywindow 上添加广告页面）<br><img src="../asset/Snip20180703_23.png" alt="启动之后添加的广告页面"></p>
+<p>启动静态页面的图片<br><img src="../asset/Snip20180703_24.png" alt="启动页面的位置要注意，（不要随便挪动）"><br>每种语言都有自己的 语言代码.lproj文件夹，因为实现本地化的时候，会有多种语言；<br><a href="http://mokai.me/2015/10/iOS%E5%9B%BD%E9%99%85%E5%8C%96/" target="_blank" rel="noopener">多种语言本地化与国际化</a></p>
+<p>出现启动页面的图片加载不出来，可以去查看一下几点：<br>之所以会出现这个问题是因为我们在创建的启动页面的时候要出现了问题；<br>1、一个是我们创建要创建launchScreen ，而不是我们平常的storyBoard的方式<br>2、我们的资源应该在创建的时候要选择相应的对应的项目，否则默认是原来的；<br>3、还有就是相关的图片可能是拷贝的，尽量是能够原本的拖进来，也就是我们选择附属的关系应该确定；</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/03/iOS启动页面以及开屏广告/" data-id="cjj5hjpij0000ynojflh5t41r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS-启动页面-开屏广告/">iOS 启动页面 开屏广告</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-iOS-基础" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2018/07/01/iOS-基础/" class="article-date">
+  <time datetime="2018-07-01T09:23:56.000Z" itemprop="datePublished">2018-07-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/07/01/iOS-基础/">iOS 基础 通知和宏定义</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1.通知上的细节，类里面的东西，需要去查看真实的内容；<br><img src="../asset/Snip20180701_4.png" alt="通知不同的版本权限"><br><a href="https://www.jianshu.com/p/5713fa2bfece" target="_blank" rel="noopener">参考链接</a><br><br><br>推送，还是会出现问题，xgpush &lt;，看看xgpushSErivce 里面appid 和appkey是否已经对应；<br>通知的中心是获取的；<br>    UNUserNotificationCenter *center = [UNUserNotificationCenter currentNotificationCenter];<br>而不是new的方式进行创建的，使用功能new创建就会出现问题，屏幕黑屏，提示有使用currentNotificationCenter 获取通知中心；</p>
+<p><img src="../asset/Snip20180701_15.png" alt="通知上面的内容"></p>
+<p>2、修改需求上面的内容，应该尽可能的添加代码，而不是替换代码，尽可能少点注释</p>
+<p>3、判断不同的版本来进行写代码： 可以通过一些宏来进行处理，<br>参考链接：<br><a href="https://blog.devzeng.com/blog/ios-multiple-version-compatible.html" target="_blank" rel="noopener">https://blog.devzeng.com/blog/ios-multiple-version-compatible.html</a><br><a href="http://blog.163.com/ray_jun/blog/static/1670536422012429104151970/" target="_blank" rel="noopener">http://blog.163.com/ray_jun/blog/static/1670536422012429104151970/</a><br><a href="https://blog.csdn.net/u010969412/article/details/30975301" target="_blank" rel="noopener">https://blog.csdn.net/u010969412/article/details/30975301</a></p>
+<p>sdk允许的最大的版本；这个和运行这个程序的ios 系统没有关系<br><img src="../asset/Snip20180701_5.png" alt="xcode 8 上运行的结果，也就是上面的宏并不是用来定义当前ios运行的版本的判断，而是不同的xcode进行编译而已；
+"><br><img src="../asset/Snip20180701_6.png" alt="xcode 7 上就是上面的情况；可以见这个只是用来进行编译的，优化代码"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">__TVOS_PROHIBITED ： 禁止 TVos 上使用</span><br><span class="line"> NS_AVAILABLE_IOS(3_0) ： ios 3 版本中引入</span><br><span class="line">NS_DEPRECATED_IOS(2_0, 6_0); ios2 引入，ios 6 过时</span><br><span class="line">NS_AVAILABLE(10_8, 6_0); mac os 10.8上引入，ios6 上引入</span><br><span class="line">NS_DEPRECATED(10_0, 10_6, 2_0, 4_0); mac os 10.0 引入，mac os 10.6 上过时，ios 2.0 引入，4.0 过时；</span><br><span class="line">同样类似，目前苹果就是3个类型的os</span><br></pre></td></tr></table></figure></p>
+<p>4、xcode 中不想升级xcode， 但是要兼容ios7 以及后面的新的ios<br>我们通过可以下载对应的ios sdk放到xcode对应的位置，然后选择最小的sdk就可以了； 或设置最大的sdk等</p>
+<p>关于sdk的兼容，我们一般是写库才会进行判断，如果是其他的，不会考虑这些库问题；我们需要兼容的是设备；应该是用UIDevice来进行判断；或者使用进程来进行判断（大才小用）；</p>
+<p>__IPHONE_OS_VERSION_MIN_REQUIRED<br>这里就需要用到这个宏进行处理；<br>或者还有大的概念的宏定义</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这些宏定义都是在这个头文件中： AvailabilityInternal.h</span><br></pre></td></tr></table></figure>
+<p><img src="../asset/Snip20180701_7.png" alt="test 例子"><br><a href="https://developer.apple.com/library/archive/documentation/DeveloperTools/Conceptual/cross_development/Using/using.html#//apple_ref/doc/uid/20002000-SW5" target="_blank" rel="noopener">sdk 上面的官方网站介绍</a><br>参考链接：<br><a href="http://blog.csdn.net/xianghuibeijing/article/details/6259824" target="_blank" rel="noopener">参考0</a><br><a href="https://daiweilai.github.io/2015/01/20/iOS%E4%B8%AD%E7%9A%84%E9%A2%84%E7%BC%96%E8%AF%91%E6%8C%87%E4%BB%A4%E7%9A%84%E5%88%9D%E6%AD%A5%E6%8E%A2%E7%A9%B6/" target="_blank" rel="noopener">参考1</a><br><img src="../asset/Snip20180701_8.png" alt="条件编译和动态区分"><br>不兼容的API都会在framework release notes里标明。所以，release note是相当重要的东西<br><img src="../asset/Snip20180701_9.png" alt="使用例子"><br><a href="http://iosdevelopertips.com/best-practices/eveything-you-need-to-know-about-ios-and-os-x-deprecated-apis.html" target="_blank" rel="noopener">过期的api详解</a></p>
+<p><img src="../asset/Snip20180701_11.png" alt="命名冲突"><br><img src="../asset/Snip20180701_12.png" alt="声明的提示"><br><img src="../asset/Snip20180701_13.png" alt="声明的提示"></p>
+<p><img src="https://gcc.gnu.org/onlinedocs/gcc/Diagnostic-Pragmas.html" alt="gcc上面的内容，oc里面的警告忽略是gcc上面的类似内容"></p>
+<p>5、视频上面的一些格式<br>优酷 、腾讯、乐视等大型视频网站的视频地址的获取，</p>
+<p>视频的格式：<br>　　M3U8视频格格式也是一种M3U，只是它的编码格式是UTF-8格式。M3U用Latin-1字符集编码。M3U8格式特点是带有一个目录信息或文件。<br>　　MP4视频文件 即 mp4 （文件格式） 。 MPEG-4包含了MPEG-1及MPEG-2的绝大部份功能及其他格式的长处，并加入及扩充对虚拟现实模型语言（VRML ， VirtualReality Modeling Language）的支持，面向对象的合成档案（包括音效，视讯及VRML对象），以及数字版权管理（DRM）及其他互动功能。而MPEG-4比MPEG-2更先进的其中一个特点，就是不再使用宏区块做影像分析，而是以影像上个体为变化记录，因此尽管影像变化速度很快、码率不足时，也不会出现方块画面。</p>
+<p><a href="http://blog.csdn.net/langeldep/article/details/8603045/" target="_blank" rel="noopener">http://blog.csdn.net/langeldep/article/details/8603045/</a><br>m3u8 格式的讲解</p>
+<p>百度百科：<br>m3u文件<br>M3U本质上说不是音频文件，它是音频文件的列表文件，是纯文本文件。你下载下来打开它，播放软件并不是播放它，而是根据它的记录找到网络地址进行在线播放。</p>
+<p>例子说明<br>编辑<br>打开记事本，依次输入硬盘上几首MP3文件的路径，类似“H：\yinyue\来生缘.mp3……H：\yinyue \一起走过的日子.mp3”，每输入一首歌后，回车另起一行，输入所有的歌曲路径后，点开【文件】菜单，再点击【另存为】，在文件名中输入“刘德华. m3u”，点击【保存】，注意保存时，文件类型选“所有文件（?.?）”。保存完毕后，一个播放列表就完成了。可点击这个文件，验证是否已经自动打开与之关联的MP3播放软件并开始播放。当然，不只是MP3文件，只要是播放器支持的媒体文件，都可以用这个方法来做播放表。<br><a href="https://zh.wikipedia.org/wiki/M3U" target="_blank" rel="noopener">https://zh.wikipedia.org/wiki/M3U</a><br><a href="http://baike.baidu.com/view/718664.htm" target="_blank" rel="noopener">http://baike.baidu.com/view/718664.htm</a><br><a href="http://www.360doc.com/content/15/1103/11/20918780_510398157.shtml" target="_blank" rel="noopener">http://www.360doc.com/content/15/1103/11/20918780_510398157.shtml</a><br><a href="http://blog.csdn.net/bonlog/article/details/24551051" target="_blank" rel="noopener">http://blog.csdn.net/bonlog/article/details/24551051</a><br><a href="http://www.codeceo.com/article/youku-real-url.html" target="_blank" rel="noopener">http://www.codeceo.com/article/youku-real-url.html</a><br><a href="http://cccidea.com/it/program/134.html" target="_blank" rel="noopener">http://cccidea.com/it/program/134.html</a><br><a href="http://www.jianshu.com/p/7c0179a279f1" target="_blank" rel="noopener">http://www.jianshu.com/p/7c0179a279f1</a></p>
+<p><a href="http://www.jianshu.com/p/fd72d3cbd3dc" target="_blank" rel="noopener">http://www.jianshu.com/p/fd72d3cbd3dc</a><br><a href="http://www.jianshu.com/collection/62788fc96b49" target="_blank" rel="noopener">http://www.jianshu.com/collection/62788fc96b49</a><br><a href="http://www.jianshu.com/search?q=opengl&amp;page=1&amp;type=collections" target="_blank" rel="noopener">http://www.jianshu.com/search?q=opengl&amp;page=1&amp;type=collections</a><br><a href="http://www.jianshu.com/collection/dfeb8e9a87db" target="_blank" rel="noopener">http://www.jianshu.com/collection/dfeb8e9a87db</a></p>
+<p>c 语言上面的条件编译：<br><a href="http://blog.sina.com.cn/s/blog_4b4b54da0100r2l6.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_4b4b54da0100r2l6.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2018/07/01/iOS-基础/" data-id="cjj2mp6nk0000snojr9ghf3hy" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/iOS基础知识-通知/">iOS基础知识 通知</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-ffmpeg-了解" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -103,11 +243,15 @@
 <p><img src="../asset/Snip20180504_6.png" alt="示例：用ffplay播放音频（对应的播放的率变换以及+ 语谱图画界面）"><br><img src="../asset/Snip20180504_10.png" alt="示例：用ffplay播放音频（对应的播放的率变换以及+ 语谱图画界面）"><br><code>左右键分别是退10s和快进10s， 上下键分别是退1m和快进1m；esc退出播放， w键将会绘制音频的波形图等；p暂停，</code></p>
 <p>ffplay 当然还有一些播放参数选择：<br>ffplay WeChatSight1485.mp4 -loop 2  循环播放2次；<br>ffplay WeChatSight1485.mp4 -ast 1 播放的是第一个音频流，如果播放第二个音频流的话就会静音；<br>ffplay WeChatSight1485.mp4 -vst 0 播放第一个视频流，  也可以播放第二个视频流，由于没有，显示黑屏；(这个参数也要看对应的index值是多少)</p>
 <p>ffplay有用的一些参数：<br>1） 裸数据，用ffplay播放裸数据， 音频的pcm以及视频的YUV430P 或rbga；</p>
+<p>ffplay 是可以播放裸数据的音视频的，但是需要设置对应的参数：<br>音频： 格式（-f） /声道数 （-channels）、 采样率（-ar）这个要设置正确，就是在pcm的头部添加44个字节；</p>
+<p>视频播放的同步： 音画同步方式：<br>1） 以音频为主轴看作为同步源<br>2） 以视频为主轴作为同步源<br>3） 以外部时钟为主时间轴作为同步源<br>ffplay ***.mp4 -sync audio/video/ext</p>
+<p>3、ffmpeg 强大的媒体转换工具<br>查看ffmpeg中的参数，可以使用man ffmpeg<br>查看有关的参数是如何进行使用；<br>1） 通用参数<br>2） 视频参数<br>3） 音频参数</p>
+<p>使用过程：<br><a href="https://github.com/zhanxiaokai/iOS-FFmpegDecoder" target="_blank" rel="noopener">项目的实例代码</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1）引入头文件</span><br><span class="line">2）注册协议、格式与编解码器</span><br><span class="line">3)打开媒体文件源，并设置超时回调</span><br><span class="line">4) 寻找各个流，并且打开对应的解码器</span><br><span class="line">5）初始化解码后数据的结构体</span><br><span class="line">6）读取流内容并且解码</span><br><span class="line">7）处理解码后的裸数据</span><br><span class="line">8）关闭所有资源</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/03/ffmpeg-了解/" data-id="cjgqo7exe0001h6ojwi7qulan" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/03/ffmpeg-了解/" data-id="cjj2mp6ns0003snoj9bozqguh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -144,7 +288,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/02/图像处理/" data-id="cjgqo7exh0002h6oj703co6sx" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/02/图像处理/" data-id="cjj2mp6nr0002snojmbxtqia0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -190,7 +334,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/02/hello-world/" data-id="cjgqo7ex90000h6ojeqrtlgdf" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/02/hello-world/" data-id="cjj2mp6no0001snojv9ioplme" class="article-share-link">Share</a>
       
       
     </footer>
@@ -210,15 +354,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS-启动页面-开屏广告/">iOS 启动页面 开屏广告</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS基础知识-通知/">iOS基础知识 通知</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios-杂烩/">ios 杂烩</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/iOS-启动页面-开屏广告/" style="font-size: 10px;">iOS 启动页面 开屏广告</a> <a href="/tags/iOS基础知识-通知/" style="font-size: 10px;">iOS基础知识 通知</a> <a href="/tags/ios-杂烩/" style="font-size: 10px;">ios 杂烩</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
     </div>
   </div>
 
@@ -231,15 +389,23 @@
       <ul>
         
           <li>
+            <a href="/2018/07/03/iOS-杂烩/">iOS 杂烩</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/03/iOS启动页面以及开屏广告/">iOS启动页面以及开屏广告</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/01/iOS-基础/">iOS 基础 通知和宏定义</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/03/ffmpeg-了解/">ffmpeg 了解</a>
           </li>
         
           <li>
             <a href="/2018/05/02/图像处理/">图像处理</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/02/hello-world/">Hello World</a>
           </li>
         
       </ul>
