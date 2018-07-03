@@ -20,7 +20,7 @@
 <meta property="og:image" content="http://yoursite.com/2018/05/03/asset/Snip20180504_6.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/03/asset/Snip20180504_6.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/03/asset/Snip20180504_10.png">
-<meta property="og:updated_time" content="2018-05-08T14:51:56.830Z">
+<meta property="og:updated_time" content="2018-05-09T17:17:34.174Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ffmpeg 了解">
 <meta name="twitter:description" content="ffmpeg 的编译 与命令行工具 1、 ffmpeg (fast forward MPEG)【mpeg 是编码的标准】提供了一套可以用来记录、处理数字音频、视频，并将其转换为流的开源框架；提供了录制，转换以及流音视频的完整解决方案。 ffmpeg 结构图 ffmpeg可以通过源码进行编译生成， 一般都是符合GUN的软件方式配置；mac 上也是可以直接通过打包好的文件进行安装。 123456789">
@@ -49,7 +49,7 @@
       </h1>
       
         <h2 id="subtitle-wrap">
-          <a href="/" id="subtitle">脚踏实地</a>
+          <a href="/" id="subtitle">凡心所向，素履可往</a>
         </h2>
       
     </div>
@@ -114,11 +114,13 @@
 <p>ffplay有用的一些参数：<br>1） 裸数据，用ffplay播放裸数据， 音频的pcm以及视频的YUV430P 或rbga；</p>
 <p>ffplay 是可以播放裸数据的音视频的，但是需要设置对应的参数：<br>音频： 格式（-f） /声道数 （-channels）、 采样率（-ar）这个要设置正确，就是在pcm的头部添加44个字节；</p>
 <p>视频播放的同步： 音画同步方式：<br>1） 以音频为主轴看作为同步源<br>2） 以视频为主轴作为同步源<br>3） 以外部时钟为主时间轴作为同步源<br>ffplay ***.mp4 -sync audio/video/ext</p>
+<p>3、ffmpeg 强大的媒体转换工具<br>查看ffmpeg中的参数，可以使用man ffmpeg<br>查看有关的参数是如何进行使用；<br>1） 通用参数<br>2） 视频参数<br>3） 音频参数</p>
+<p>使用过程：<br><a href="https://github.com/zhanxiaokai/iOS-FFmpegDecoder" target="_blank" rel="noopener">项目的实例代码</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1）引入头文件</span><br><span class="line">2）注册协议、格式与编解码器</span><br><span class="line">3)打开媒体文件源，并设置超时回调</span><br><span class="line">4) 寻找各个流，并且打开对应的解码器</span><br><span class="line">5）初始化解码后数据的结构体</span><br><span class="line">6）读取流内容并且解码</span><br><span class="line">7）处理解码后的裸数据</span><br><span class="line">8）关闭所有资源</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2018/05/03/ffmpeg-了解/" data-id="cjgqo7exe0001h6ojwi7qulan" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2018/05/03/ffmpeg-了解/" data-id="cjj5icgfb0002ydojtcxrylbx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -126,6 +128,15 @@
   
     
 <nav id="article-nav">
+  
+    <a href="/2018/07/01/iOS-基础/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          iOS 基础 通知和宏定义
+        
+      </div>
+    </a>
   
   
     <a href="/2018/05/02/图像处理/" id="article-nav-older" class="article-nav-link-wrap">
@@ -146,15 +157,29 @@
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS-启动页面-开屏广告/">iOS 启动页面 开屏广告</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/iOS基础知识-通知/">iOS基础知识 通知</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ios-杂烩/">ios 杂烩</a></li></ul>
+    </div>
+  </div>
+
 
   
     
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/iOS-启动页面-开屏广告/" style="font-size: 10px;">iOS 启动页面 开屏广告</a> <a href="/tags/iOS基础知识-通知/" style="font-size: 10px;">iOS基础知识 通知</a> <a href="/tags/ios-杂烩/" style="font-size: 10px;">ios 杂烩</a>
+    </div>
+  </div>
+
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">July 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">May 2018</a></li></ul>
     </div>
   </div>
 
@@ -167,15 +192,23 @@
       <ul>
         
           <li>
+            <a href="/2018/07/03/iOS-杂烩/">iOS 杂烩</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/03/iOS启动页面以及开屏广告/">iOS启动页面以及开屏广告</a>
+          </li>
+        
+          <li>
+            <a href="/2018/07/01/iOS-基础/">iOS 基础 通知和宏定义</a>
+          </li>
+        
+          <li>
             <a href="/2018/05/03/ffmpeg-了解/">ffmpeg 了解</a>
           </li>
         
           <li>
             <a href="/2018/05/02/图像处理/">图像处理</a>
-          </li>
-        
-          <li>
-            <a href="/2018/05/02/hello-world/">Hello World</a>
           </li>
         
       </ul>
