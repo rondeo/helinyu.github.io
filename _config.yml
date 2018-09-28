@@ -3,8 +3,8 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 技术挖坑
-subtitle: 凡心所向，素履可往!
+title: laterite's blogs
+subtitle: 凡心所向，素履可往;欲达己而达人！
 description:
 keywords:
 author: laterite
@@ -54,11 +54,30 @@ index_generator:
   path: ''
   per_page: 10
   order_by: -date
+
+menu:
+  home: /
+  archives: /archives
+  tags: /tags
+  about: /about
+  categories: categories
   
 # Category & Tag
 default_category: uncategorized
 category_map:
+  test: test
+  ffmpeg: ffmpeg
+  oc: oc
+  swift: swift
+  图像处理: picture
+
 tag_map:
+  oc: oc
+  swift: swift
+  iOS: iOS
+  ffmpeg: ffmpeg
+  openGL: openGL
+  openVC: openVC
 
 # Date / Time format
 ## Hexo uses Moment.js to parse and display date
@@ -71,6 +90,14 @@ time_format: HH:mm:ss
 ## Set per_page to 0 to disable pagination
 per_page: 10
 pagination_dir: page
+
+tages: 
+- oc
+- iOS
+- swift
+- ffmpeg
+- openGL
+- openVC
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/

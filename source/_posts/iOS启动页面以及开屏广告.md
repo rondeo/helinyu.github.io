@@ -2,6 +2,8 @@
 title: iOS启动页面以及开屏广告
 date: 2018-07-03 17:23:05
 tags: iOS 启动页面 开屏广告
+categories: oc
+tag: 标题1
 ---
 
 我们经常看到lanchScreen.xib 文件就是一个启动页面; 

@@ -2,6 +2,7 @@
 title: ffmpeg 了解
 date: 2018-05-03 23:13:25
 tags:
+categories: ffmpeg
 ---
 
 ffmpeg 的编译 与命令行工具

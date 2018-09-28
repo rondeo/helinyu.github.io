@@ -2,6 +2,7 @@
 title: iOS 杂烩
 date: 2018-07-03 17:43:48
 tags: ios 杂烩
+categories: oc
 ---
 
 [iOS 跳转到app store](https://www.jianshu.com/p/d81a0ca7b149)
