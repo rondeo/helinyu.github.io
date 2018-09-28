@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>LLImageEditor</title>
+      <link href="/2018/09/19/LLImageEditor/"/>
+      <url>/2018/09/19/LLImageEditor/</url>
+      
+        <content type="html"><![CDATA[<p>思路： 大概的内容处理的过程<br>1、图片剪切<br>2、滤镜<br>3、贴纸<br>4、文案 ， 文字的颜色 ， common模块<br>5、涂鸦 ， 文字的颜色 ，common 模块</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> oc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>testCategory</title>
       <link href="/2018/09/18/testCategory/"/>
       <url>/2018/09/18/testCategory/</url>
