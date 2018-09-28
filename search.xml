@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>ios unit test</title>
+      <link href="/2018/09/28/ios-unit-test/"/>
+      <url>/2018/09/28/ios-unit-test/</url>
+      
+        <content type="html"><![CDATA[<p>1、 iOS单元测试是为了什么？</p><p>2、iOS上的基本测试<br>    1）测试接口的逻辑，这个过程应该尽可能的考虑方位和一些特殊的情况，对于用例里面的每个接口；<br>    eg： 在ViewController里面写了一个方法的代码<br>    <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (NSInteger)custom1 &#123;</span><br><span class="line">    return arc4random() % 100;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><pre><code>下面是基本的测试代码：    在UnitTests.m 文件里面写对应的代码，<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (void)testPerformanceExample &#123;</span><br><span class="line">    // This is an example of a performance test case.</span><br><span class="line">    </span><br><span class="line">    NSInteger result = [self-&gt;_vc custom1];</span><br><span class="line">    NSLog(@&quot;reuslt ;%zd&quot;,result);</span><br><span class="line">    NSAssert(result &gt;10, @&quot;获取的数据只能够大于10才可以&quot;);</span><br><span class="line">    </span><br><span class="line">    [self measureBlock:^&#123;</span><br><span class="line">        // Put the code you want to measure the time of here.</span><br><span class="line">      </span><br><span class="line">        NSInteger result = [self-&gt;_vc custom1];</span><br><span class="line">        NSLog(@&quot;reuslt ;%zd&quot;,result);</span><br><span class="line">        // 执行的性能</span><br><span class="line">    &#125;];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>执行cmd+u 执行测试的代码，cmd +5 查看对应的信息。</code></pre><p>3、性能问题:（对代码执行的时间性能进行控制）<br><img src="../asset/Snip20180928_95.png" alt="性能测试"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> oc </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>LLImageEditor</title>
       <link href="/2018/09/19/LLImageEditor/"/>
       <url>/2018/09/19/LLImageEditor/</url>
