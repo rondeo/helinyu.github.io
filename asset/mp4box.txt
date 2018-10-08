@@ -1,0 +1,44 @@
+
+iso file] Unknown box type desc
+[iso file] Box "data" is invalid in container desc
+* Movie Info *
+	Timescale 1000 - 2 tracks
+	Computed Duration 00:02:21.113 - Indicated Duration 00:02:21.049
+	Fragmented File: no
+	File suitable for progressive download (moov before mdat)
+	File Brand isom - version 512
+		Compatible brands: isom iso2 avc1 mp41
+	Created: UNKNOWN DATE	Modified: UNKNOWN DATE
+File has no MPEG4 IOD/OD
+
+iTunes Info:
+	Comment: vid:2a6d1b833c5145c1932d20f35a9ab15d
+	Encoder Software: Lavf56.40.101
+1 UDTA types: meta (1) 
+
+Track # 1 Info - TrackID 1 - TimeScale 12800
+Media Duration 00:02:21.000 - Indicated Duration 00:02:21.000
+Track has 2 edit lists: track duration is 00:02:21.113
+Media Info: Language "Undetermined (und)" - Type "vide:avc1" - 3525 samples
+Visual Track layout: x=0 y=0 width=640 height=360
+MPEG-4 Config: Visual Stream - ObjectTypeIndication 0x21
+AVC/H264 Video - Visual Size 640 x 360
+	AVC Info: 1 SPS - 1 PPS - Profile High @ Level 3
+	NAL Unit length bits: 32
+	Chroma format YUV 4:2:0 - Luma bit depth 8 - chroma bit depth 8
+	SPS#1 hash: ABB63318EEE201D0222A9E6C15A3B3E6B2BDE2E1
+	PPS#1 hash: 47443528693E530A799FBD8B4F759CF361CB662A
+Self-synchronized
+	RFC6381 Codec Parameters: avc1.64001E
+	Average GOP length: 130 samples
+
+Track # 2 Info - TrackID 2 - TimeScale 44100
+Media Duration 00:02:21.048 - Indicated Duration 00:02:21.048
+Track has 1 edit lists: track duration is 00:02:21.049
+Media Info: Language "Undetermined (und)" - Type "soun:mp4a" - 3037 samples
+MPEG-4 Config: Audio Stream - ObjectTypeIndication 0x40
+MPEG-4 Audio SBR (HE-AAC v1) - 2 Channel(s) - SampleRate 22050 - SBR: SampleRate 44100 Type MPEG-4 Audio AAC LC
+Synchronized on stream 1
+	RFC6381 Codec Parameters: mp4a.40.5
+Alternate Group ID 1
+	All samples are sync
