@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>M3U8</title>
+      <link href="/2018/10/28/M3U8/"/>
+      <url>/2018/10/28/M3U8/</url>
+      
+        <content type="html"><![CDATA[<p></p><h2>一、视频文件转M3U8 </h2><br>1） 常见的流媒体文件格式， 主要是以文件列表的形式存在， 支持直播和点播 ，android 和iOS中很常用；<p></p><p>使用ffmpeg 转化对应的mp4文件为M3u8 文件；</p><blockquote><p>ffmpeg -i a.mp4 a.m3u8<br>这命令将会生成对应的m3u8文件，将对应的mp4文件切成对应的小块；<br><img src="../../../../asset/Snip20181028_2.png" alt="MP4 文件转化为对应的m3u8文件"></p></blockquote><p>m3u8的基本格式：<br><img src="../../../../asset/Snip20181028_1.png" alt="m3u8的文件格式"><br>详解：<br>EXTM3U: m3u8文件必须包含的标签，并且必须在文件的第一行了；<br>EXT-X—VERSION M3U8的文件版本，常见的是3； 【当然现在有很多版本了】<br>EXT-X-TARGETDURATION 每个分片都有自己的duration， 这个分片的浮点数四舍五入的整数值 ，eg: 1.02 变为1；<br>EXT-X-MEDIA-SEQUENCE 是m3u8直播时的直播切片系列，当播放打开m3u8时，将以这个值为参考；播放对应的系列号的切片；<br>    1）分片必须是动态改变的，系列不能够相同，并且系列是增序的；<br>    2）EXT-X-ENDLIST，当m3u8中没有出现这个标签的时候，无论这个m3u8 列表中有多少分片，播放分片都是从倒数第三片开始播放，如果没有满足3片，就不应该播放；当然，如果其他播放器有自己的定制，可以按照自己的定制来进行播放；<br>    3）EXT-X-DISCONTINUITY ： 如果前一分片与后一分片不连续，可能播放就会出现错误，就需要这个标签来解决错误；<br>以播放当前分片的duration时间刷新M3U8列表，然后做对应的加载动作；<br>如果播放列表在刷新之后与之前的列表相同，那么在博佛昂当前分片duration一半的时间内再刷新一次</p><p>EXTINF: 为M3U列表中每个切片的duration；除了duration之外，还可以包含可选的描述信息，主要是标注切片信息，使用逗号分隔开。<br>EXTINF 下面的信息为具体的分片信息，分片存储路径可以分为相对路径或者绝对路径；也可以是互联网上的链接；</p><p>EXT-X-ENDLIST：表明该M3U8文件不会再产生更多的切片，可以理解为该M3U8已停止更新，并且播放分片到这个标签就结束。 也就是结束的标签</p><p><a href="https://www.zhihu.com/question/48914419" target="_blank" rel="noopener">https://www.zhihu.com/question/48914419</a><br>m3u8 相关的内容</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ffmpeg </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ffmpeg </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>视频文件转FLV</title>
       <link href="/2018/10/12/%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6%E8%BD%ACFLV/"/>
       <url>/2018/10/12/%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6%E8%BD%ACFLV/</url>
