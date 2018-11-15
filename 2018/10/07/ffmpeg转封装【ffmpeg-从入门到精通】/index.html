@@ -1,0 +1,1302 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="ffmpeg," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="音视频文件转mp4格式 ffmpeg 对媒体格式进行转封装；媒体格式转封装是什么？？？ 1）mp4 格式2）格式解析方式、3）如何获取mp4格式文件解析时需要的数据4）mp4的可视化分析工具，5）使用ffmpeg封装mp4文件  一、了解mp4的视频优势     跨平台好， 可以使用flash、ios、android 的H5播放。  二、MP4基本格式 MP4标准： ISO-14496 part">
+<meta name="keywords" content="ffmpeg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ffmpeg转封装【ffmpeg 从入门到精通】">
+<meta property="og:url" content="http://yoursite.com/2018/10/07/ffmpeg转封装【ffmpeg-从入门到精通】/index.html">
+<meta property="og:site_name" content="laterite&#39;s blogs">
+<meta property="og:description" content="音视频文件转mp4格式 ffmpeg 对媒体格式进行转封装；媒体格式转封装是什么？？？ 1）mp4 格式2）格式解析方式、3）如何获取mp4格式文件解析时需要的数据4）mp4的可视化分析工具，5）使用ffmpeg封装mp4文件  一、了解mp4的视频优势     跨平台好， 可以使用flash、ios、android 的H5播放。  二、MP4基本格式 MP4标准： ISO-14496 part">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/asset/Snip20181007_2.png">
+<meta property="og:image" content="http://yoursite.com/asset/Snip20181009_29.png">
+<meta property="og:image" content="http://yoursite.com/asset/Snip20181007_4.png">
+<meta property="og:image" content="http://yoursite.com/asset/Snip20181008_23.png">
+<meta property="og:image" content="http://yoursite.com/asset/Snip20181008_24.png">
+<meta property="og:image" content="http://yoursite.com/asset/Snip20181008_27.png">
+<meta property="og:image" content="http://yoursite.com/asset/Snip20181009_28.png">
+<meta property="og:image" content="http://yoursite.com/asset/Snip20181010_9.png">
+<meta property="og:image" content="http://yoursite.com/asset/Snip20181010_10.png">
+<meta property="og:updated_time" content="2018-10-10T15:46:14.457Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ffmpeg转封装【ffmpeg 从入门到精通】">
+<meta name="twitter:description" content="音视频文件转mp4格式 ffmpeg 对媒体格式进行转封装；媒体格式转封装是什么？？？ 1）mp4 格式2）格式解析方式、3）如何获取mp4格式文件解析时需要的数据4）mp4的可视化分析工具，5）使用ffmpeg封装mp4文件  一、了解mp4的视频优势     跨平台好， 可以使用flash、ios、android 的H5播放。  二、MP4基本格式 MP4标准： ISO-14496 part">
+<meta name="twitter:image" content="http://yoursite.com/asset/Snip20181007_2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":20,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/10/07/ffmpeg转封装【ffmpeg-从入门到精通】/"/>
+
+
+
+
+
+  <title>ffmpeg转封装【ffmpeg 从入门到精通】 | laterite's blogs</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">laterite's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">凡心所向，素履可往; 欲达己而达人！; 独学而无友，则孤陋而寡闻!</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/07/ffmpeg转封装【ffmpeg-从入门到精通】/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="laterite">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/asset/qrcode_for_gh_24ff9e178d2c_258.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="laterite's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">ffmpeg转封装【ffmpeg 从入门到精通】</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-07T17:36:10+08:00">
+                2018-10-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/ffmpeg/" itemprop="url" rel="index">
+                    <span itemprop="name">ffmpeg</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>音视频文件转mp4格式</p>
+<p>ffmpeg 对媒体格式进行转封装；<br>媒体格式转封装是什么？？？</p>
+<p>1）mp4 格式<br>2）格式解析方式、<br>3）如何获取mp4格式文件解析时需要的数据<br>4）mp4的可视化分析工具，<br>5）使用ffmpeg封装mp4文件</p>
+<p></p><h3> 一、了解mp4的视频优势 </h3><br>    跨平台好， 可以使用flash、ios、android 的H5播放。<p></p>
+<p></p><h3> 二、MP4基本格式 </h3><br>MP4标准： ISO-14496 part 12 ， ISO-14496 part 14<br>这个链接如何进行查看？？？？ 【这个可以直接搜索，然后看维基百科的内容】<br><a href="https://en.wikipedia.org/wiki/MPEG-4" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/MPEG-4</a><p></p>
+<p></p><h4>1、几个概念：</h4><br>    （1）MP4 = (n)Box + (n)fullBox【 MP4是由许多个Box 与fullBox组成】<br>    （2）Box = Header + Data<br>    （3）FullBox 是Box的扩展，基于Box结构， 在Header中增加了8位version标志 和24位flag标志。<br>    （4）Header 包含了整个Box的长度大小(size)和类型(type)<br>        当size等于0时，代表这个Box是文件的最后一个Box；<br>        当size等于1时，代表Box长度需啊哟更多的位来描述, 在后面定义一个64位的largesize来描述Box长度。<br>        当Type为uuid时，说明这个Box中的数据是用户自定义扩展类型。<br>    (5)Data 是Box的实际数据，可以是纯数据，也可以是更多的子Box。<br>    (6)当一个Box中Data是一系列的子Box时，这个Box又可以成为Container（容器）Box。<p></p>
+<p></p><h4>2、Mp4 常用参考标准排列方式</h4><p></p>
+<p></p><h5>1）看书p61<h5><br>note：<br>MP4标准中描述的moov与mdat 的存放位置前后并没有进行强制要求，所以这些时候moov这个Box在mdat的后面和前面都有可能；<br>在互联网视频点播中，如果希望MP4文件被迅速打开，则需要将moov存放在mdat的前面；<br>如果放在后面，则需要将mp4文件下载完成了之后才可以进行播放。<p></p>
+<p>下面是表的主要信息：</p>
+<p></p><h6> <1>moov容器 </1></h6><br>moov定了一个mp4文件中的数据信息【meta信息】，类型是moov， 是一个容器atom，其至少必须包含以下三种atom中的一种：<br>【atom是啥？ 隐式是存放音视频数据信息的一种数据结构】<br>    1）mvhd(movie header atom) 存放未压缩过的影片信息的头容器<br>    2）cmov（compressed movied atom）压缩过的电影信息容器，不常用<br>    3）rmra（reference movie atom） 参考电影信息容器，不常用<br>    4）包含其他容器信息，eg：影片剪辑信息(clipping atom(clip))、一个或几个trakAtom(trak)、一个Color table atom(atab) 和一个user data atom(udta)<p></p>
+<p>详解：<br>    1）mvhd 定义多媒体的time scale ，duration以及display characteristic；<br>        track中定义了多媒体文件中的一个track信息，track是多媒体文件中可以独立操作的媒体单位，例如： 一个音频流就是一个track，一个视频流就是一个track。<br>    使用二进制查看工具打开吗，哎一个mp4 文件。？？？ 使用什么工具？Hex fiend 、atom inspector工具打开<br>    <img src="../../../../asset/Snip20181007_2.png" alt="使用二进制查看工具打开mp4文件(Hex fiend )"><br>    <img src="../../../../asset/Snip20181009_29.png" alt="使用二进制查看工具打开mp4文件(Hex fiend )"><br>    上面两张图中，上一张是视频被截断的，下一张是完整的视频， 我们开始应该尽可能的使用完整的视频<br>    <img src="../../../../asset/Snip20181007_4.png" alt="atom inspector"></p>
+<p>下面是moov参数：<br><img src="../../../../asset/Snip20181008_23.png" alt="moov 参数"></p>
+<p></p><h3>三、mp4 分析工具</h3><br>mp4封装格式的分析工具：<br>ffmpeg、elecard streamEye/ mp4box, mp4info<p></p>
+<p></p><h5>1)Elecard StreamEye </h5><br>    <1>可以查看帧的排列信息，将I帧，p帧、B帧显示不同颜色；而且柱的长短根据帧的大小展示；<br>    <2>mp4内容信息，包括流的信息、宏块的信息、文件头的信息、图像的信息以及文件的信息等。<br>set volume bootability and startup disk options,<br>设置启动能力和启动磁盘选项<br><a href="https://www.elecard.com/videos" target="_blank" rel="noopener">https://www.elecard.com/videos</a><br>注册了一个，说5S发邮件给我，但是没有收到，下次使用google的邮箱看看<p></p>
+<p></p><h5>2) 查看一个媒体文件，使用vi来也是可以看到基本的内容的</h5><br><img src="../../../../asset/Snip20181008_24.png" alt="moov 参数"><p></p>
+<p></p><h5>3) mp4box</h5><br>mp4box 是GPAC 项目中的一个组件， 可以通过mp4box针对媒体文件进行合成、拆解等操作。<br><img src="../../../../asset/Snip20181008_27.png" alt="mp4box 里面的参数"><p></p>
+<p>mp4box 有很多子帮助项，<br>eg： DASH 切片、编码、metadata、BIFS流、ISMA、SWF相关帮助信息等。<br>分析mp4文件,命令如下:</p>
+<blockquote>
+<p>mp4box -info 1519916400.mp4<br><a href="../../../../asset/mp4box.txt">输出信息</a><br>可以看到有timescale 、duration、framegremented等内容</p>
+</blockquote>
+<p></p><h5>4) mp4info </h5><br>可以将mp4文件中的Box 解析出来，并将其中数据展现出来<br>官网链接：<br><a href="https://www.bento4.com/" target="_blank" rel="noopener">https://www.bento4.com/</a><br><a href="https://www.bento4.com/documentation/mp4info/" target="_blank" rel="noopener">https://www.bento4.com/documentation/mp4info/</a><br>在mac上只有命令行的，没有图形界面的内容，这个到时候在进行写个mac应用吧；<p></p>
+<p>直接执行： mp4info output.mp4<br>输出结果如下：<br><a href="../../../../asset/mp4info.txt">输出结果</a></p>
+<p></p><h3> 四、mp4在ffmpeg中的Demuxer</h3><br>1) ffmpeg -h demuxer=mp4<br>结果如下图：<br><img src="../../../../asset/Snip20181009_28.png" alt="ffmpeg 中的Demuxer"><br>上面的图可以看出，mp4的demuxer与mov、3pg、m4a、3g2、mj2的Demuxer相同；可以详细查看图中的选项；<p></p>
+<p>2) 在解析MP4文件，通过ffmpeg解析时，可以通过参数ignore_editlist 忽略Editlist Atom 对MP4的解析；<br>不过通常使用默认操作就可以了；</p>
+<p></p><h3> 五、mp4在ffmpeg中的Muxer</h3><br>mp4在封装相对于解封装的时候复杂点；上面的几种格式在封装和解封装上基本上没有太大差别；·<br>输入命令：ffmpeg -h muxer=mp4<br>结果如下：<br><img src="../../../../asset/Snip20181010_9.png" alt="ffmpeg 中的muxer"><br><img src="../../../../asset/Snip20181010_10.png" alt="ffmpeg 中的muxer"><br>mp4的muxer支持的参数比较复杂，例如：支持在视频关键帧处切片，只支持设置moov容器大小的最大值，支持设置encrypt加密等。<p></p>
+<p>下面是对应参数了解：<br>    1）faststart </p>
+</2></1></h5></h5>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/asset/qrcode_for_gh_24ff9e178d2c_1280.jpg" alt="laterite wechat" style="width: 200px; max-width: 100%;"/>
+    <div></div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div></div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/asset/WechatIMG290.jpeg" alt="laterite 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/asset/WechatIMG289.jpeg" alt="laterite 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ffmpeg/" rel="tag"># ffmpeg</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/28/ios-unit-test/" rel="next" title="ios unit test">
+                <i class="fa fa-chevron-left"></i> ios unit test
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/10/10/ModelCreation/" rel="prev" title="ModelCreation">
+                ModelCreation <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/asset/qrcode_for_gh_24ff9e178d2c_258.jpg"
+                alt="laterite" />
+            
+              <p class="site-author-name" itemprop="name">laterite</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/helinyu" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:2319979647@qq.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.weibo.com/u/3006442807/home?wvr=5" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-globe"></i>Weibo</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/2319979647Felix" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://www.facebook.com/?ref=tn_tnmn" target="_blank" title="FB Page">
+                      
+                        <i class="fa fa-fw fa-facebook"></i>FB Page</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.jianshu.com/u/1851ec413025" title="简书主页" target="_blank">简书主页</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">1.</span> <span class="nav-text"> 一、了解mp4的视频优势 </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">2.</span> <span class="nav-text"> 二、MP4基本格式 </span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.1.</span> <span class="nav-text">1、几个概念：</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.</span> <span class="nav-text">2、Mp4 常用参考标准排列方式</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.1.</span> <span class="nav-text">1）看书p61note：MP4标准中描述的moov与mdat 的存放位置前后并没有进行强制要求，所以这些时候moov这个Box在mdat的后面和前面都有可能；在互联网视频点播中，如果希望MP4文件被迅速打开，则需要将moov存放在mdat的前面；如果放在后面，则需要将mp4文件下载完成了之后才可以进行播放。
+下面是表的主要信息：
+ moov容器 moov定了一个mp4文件中的数据信息【meta信息】，类型是moov， 是一个容器atom，其至少必须包含以下三种atom中的一种：【atom是啥？ 隐式是存放音视频数据信息的一种数据结构】    1）mvhd(movie header atom) 存放未压缩过的影片信息的头容器    2）cmov（compressed movied atom）压缩过的电影信息容器，不常用    3）rmra（reference movie atom） 参考电影信息容器，不常用    4）包含其他容器信息，eg：影片剪辑信息(clipping atom(clip))、一个或几个trakAtom(trak)、一个Color table atom(atab) 和一个user data atom(udta)
+详解：    1）mvhd 定义多媒体的time scale ，duration以及display characteristic；        track中定义了多媒体文件中的一个track信息，track是多媒体文件中可以独立操作的媒体单位，例如： 一个音频流就是一个track，一个视频流就是一个track。    使用二进制查看工具打开吗，哎一个mp4 文件。？？？ 使用什么工具？Hex fiend 、atom inspector工具打开            上面两张图中，上一张是视频被截断的，下一张是完整的视频， 我们开始应该尽可能的使用完整的视频    
+下面是moov参数：
+三、mp4 分析工具mp4封装格式的分析工具：ffmpeg、elecard streamEye/ mp4box, mp4info
+1)Elecard StreamEye     可以查看帧的排列信息，将I帧，p帧、B帧显示不同颜色；而且柱的长短根据帧的大小展示；    mp4内容信息，包括流的信息、宏块的信息、文件头的信息、图像的信息以及文件的信息等。set volume bootability and startup disk options,设置启动能力和启动磁盘选项https://www.elecard.com/videos注册了一个，说5S发邮件给我，但是没有收到，下次使用google的邮箱看看
+2) 查看一个媒体文件，使用vi来也是可以看到基本的内容的
+3) mp4boxmp4box 是GPAC 项目中的一个组件， 可以通过mp4box针对媒体文件进行合成、拆解等操作。
+mp4box 有很多子帮助项，eg： DASH 切片、编码、metadata、BIFS流、ISMA、SWF相关帮助信息等。分析mp4文件,命令如下:
+
+mp4box -info 1519916400.mp4输出信息可以看到有timescale 、duration、framegremented等内容
+
+4) mp4info 可以将mp4文件中的Box 解析出来，并将其中数据展现出来官网链接：https://www.bento4.com/https://www.bento4.com/documentation/mp4info/在mac上只有命令行的，没有图形界面的内容，这个到时候在进行写个mac应用吧；
+直接执行： mp4info output.mp4输出结果如下：输出结果
+ 四、mp4在ffmpeg中的Demuxer1) ffmpeg -h demuxer=mp4结果如下图：上面的图可以看出，mp4的demuxer与mov、3pg、m4a、3g2、mj2的Demuxer相同；可以详细查看图中的选项；
+2) 在解析MP4文件，通过ffmpeg解析时，可以通过参数ignore_editlist 忽略Editlist Atom 对MP4的解析；不过通常使用默认操作就可以了；
+ 五、mp4在ffmpeg中的Muxermp4在封装相对于解封装的时候复杂点；上面的几种格式在封装和解封装上基本上没有太大差别；·输入命令：ffmpeg -h muxer=mp4结果如下：mp4的muxer支持的参数比较复杂，例如：支持在视频关键帧处切片，只支持设置moov容器大小的最大值，支持设置encrypt加密等。
+下面是对应参数了解：    1）faststart 
+</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.2.</span> <span class="nav-text">note：MP4标准中描述的moov与mdat 的存放位置前后并没有进行强制要求，所以这些时候moov这个Box在mdat的后面和前面都有可能；在互联网视频点播中，如果希望MP4文件被迅速打开，则需要将moov存放在mdat的前面；如果放在后面，则需要将mp4文件下载完成了之后才可以进行播放。
+下面是表的主要信息：
+ moov容器 moov定了一个mp4文件中的数据信息【meta信息】，类型是moov， 是一个容器atom，其至少必须包含以下三种atom中的一种：【atom是啥？ 隐式是存放音视频数据信息的一种数据结构】    1）mvhd(movie header atom) 存放未压缩过的影片信息的头容器    2）cmov（compressed movied atom）压缩过的电影信息容器，不常用    3）rmra（reference movie atom） 参考电影信息容器，不常用    4）包含其他容器信息，eg：影片剪辑信息(clipping atom(clip))、一个或几个trakAtom(trak)、一个Color table atom(atab) 和一个user data atom(udta)
+详解：    1）mvhd 定义多媒体的time scale ，duration以及display characteristic；        track中定义了多媒体文件中的一个track信息，track是多媒体文件中可以独立操作的媒体单位，例如： 一个音频流就是一个track，一个视频流就是一个track。    使用二进制查看工具打开吗，哎一个mp4 文件。？？？ 使用什么工具？Hex fiend 、atom inspector工具打开            上面两张图中，上一张是视频被截断的，下一张是完整的视频， 我们开始应该尽可能的使用完整的视频    
+下面是moov参数：
+三、mp4 分析工具mp4封装格式的分析工具：ffmpeg、elecard streamEye/ mp4box, mp4info
+1)Elecard StreamEye     可以查看帧的排列信息，将I帧，p帧、B帧显示不同颜色；而且柱的长短根据帧的大小展示；    mp4内容信息，包括流的信息、宏块的信息、文件头的信息、图像的信息以及文件的信息等。set volume bootability and startup disk options,设置启动能力和启动磁盘选项https://www.elecard.com/videos注册了一个，说5S发邮件给我，但是没有收到，下次使用google的邮箱看看
+2) 查看一个媒体文件，使用vi来也是可以看到基本的内容的
+3) mp4boxmp4box 是GPAC 项目中的一个组件， 可以通过mp4box针对媒体文件进行合成、拆解等操作。
+mp4box 有很多子帮助项，eg： DASH 切片、编码、metadata、BIFS流、ISMA、SWF相关帮助信息等。分析mp4文件,命令如下:
+
+mp4box -info 1519916400.mp4输出信息可以看到有timescale 、duration、framegremented等内容
+
+4) mp4info 可以将mp4文件中的Box 解析出来，并将其中数据展现出来官网链接：https://www.bento4.com/https://www.bento4.com/documentation/mp4info/在mac上只有命令行的，没有图形界面的内容，这个到时候在进行写个mac应用吧；
+直接执行： mp4info output.mp4输出结果如下：输出结果
+ 四、mp4在ffmpeg中的Demuxer1) ffmpeg -h demuxer=mp4结果如下图：上面的图可以看出，mp4的demuxer与mov、3pg、m4a、3g2、mj2的Demuxer相同；可以详细查看图中的选项；
+2) 在解析MP4文件，通过ffmpeg解析时，可以通过参数ignore_editlist 忽略Editlist Atom 对MP4的解析；不过通常使用默认操作就可以了；
+ 五、mp4在ffmpeg中的Muxermp4在封装相对于解封装的时候复杂点；上面的几种格式在封装和解封装上基本上没有太大差别；·输入命令：ffmpeg -h muxer=mp4结果如下：mp4的muxer支持的参数比较复杂，例如：支持在视频关键帧处切片，只支持设置moov容器大小的最大值，支持设置encrypt加密等。
+下面是对应参数了解：    1）faststart 
+</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#undefined"><span class="nav-number">2.2.2.1.</span> <span class="nav-text"> moov容器 </span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">3.</span> <span class="nav-text">三、mp4 分析工具</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.0.1.</span> <span class="nav-text">1)Elecard StreamEye </span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.0.2.</span> <span class="nav-text">2) 查看一个媒体文件，使用vi来也是可以看到基本的内容的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.0.3.</span> <span class="nav-text">3) mp4box</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#undefined"><span class="nav-number">3.0.4.</span> <span class="nav-text">4) mp4info </span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">4.</span> <span class="nav-text"> 四、mp4在ffmpeg中的Demuxer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#undefined"><span class="nav-number">5.</span> <span class="nav-text"> 五、mp4在ffmpeg中的Muxer</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">laterite</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i> 总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.4"></script>
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
