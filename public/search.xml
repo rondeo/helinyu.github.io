@@ -3,6 +3,98 @@
   
     
     <entry>
+      <title>M3U8</title>
+      <link href="/2018/10/28/M3U8/"/>
+      <url>/2018/10/28/M3U8/</url>
+      
+        <content type="html"><![CDATA[<p></p><h2>一、视频文件转M3U8 </h2><br>1） 常见的流媒体文件格式， 主要是以文件列表的形式存在， 支持直播和点播 ，android 和iOS中很常用；<p></p><p>使用ffmpeg 转化对应的mp4文件为M3u8 文件；</p><blockquote><p>ffmpeg -i a.mp4 a.m3u8<br>这命令将会生成对应的m3u8文件，将对应的mp4文件切成对应的小块；<br><img src="../../../../asset/Snip20181028_2.png" alt="MP4 文件转化为对应的m3u8文件"></p></blockquote><p>m3u8的基本格式：<br><img src="../../../../asset/Snip20181028_1.png" alt="m3u8的文件格式"><br>详解：<br>EXTM3U: m3u8文件必须包含的标签，并且必须在文件的第一行了；<br>EXT-X—VERSION M3U8的文件版本，常见的是3； 【当然现在有很多版本了】<br>EXT-X-TARGETDURATION 每个分片都有自己的duration， 这个分片的浮点数四舍五入的整数值 ，eg: 1.02 变为1；<br>EXT-X-MEDIA-SEQUENCE 是m3u8直播时的直播切片系列，当播放打开m3u8时，将以这个值为参考；播放对应的系列号的切片；<br>    1）分片必须是动态改变的，系列不能够相同，并且系列是增序的；<br>    2）EXT-X-ENDLIST，当m3u8中没有出现这个标签的时候，无论这个m3u8 列表中有多少分片，播放分片都是从倒数第三片开始播放，如果没有满足3片，就不应该播放；当然，如果其他播放器有自己的定制，可以按照自己的定制来进行播放；<br>    3）EXT-X-DISCONTINUITY ： 如果前一分片与后一分片不连续，可能播放就会出现错误，就需要这个标签来解决错误；<br>以播放当前分片的duration时间刷新M3U8列表，然后做对应的加载动作；<br>如果播放列表在刷新之后与之前的列表相同，那么在博佛昂当前分片duration一半的时间内再刷新一次</p><p>EXTINF: 为M3U列表中每个切片的duration；除了duration之外，还可以包含可选的描述信息，主要是标注切片信息，使用逗号分隔开。<br>EXTINF 下面的信息为具体的分片信息，分片存储路径可以分为相对路径或者绝对路径；也可以是互联网上的链接；</p><p>EXT-X-ENDLIST：表明该M3U8文件不会再产生更多的切片，可以理解为该M3U8已停止更新，并且播放分片到这个标签就结束。 也就是结束的标签</p><p>EXT-X-STREAM-INF : (这个参数一般吧比较少见)<br>在u3m8文件中，主要是出现在多级m3u8文件中；eg：m3u8中包含m3u8列表，或者主m3u8中包含多码率m3u8时，该标签后需要跟一些属性，下面是它的属性：<br>    1）BANDWIDTH 的值为最高码率值， 当播放EXT-X-STREAM-INF 下对应的m3u8时占用的最大码率，这个参数是在标签中必须要包含的；<br>    2）AVERAGE-BANDWIDTH 的值是平均码率值，当播放对应的m3u8时占用平均码率，这个参数是可选的；<br>    3）CODECS 用于声明EXT-X-STREAM-INF 下面对应m3u8里面的音频编码，视频编码的信息；<br>    eg：    AAC-LC音频与视频为H.264 main profile，level3.0的话，CODECS值为’mp4a.40.2,avc1.4d401e’</p><p><a href="https://www.zhihu.com/question/48914419" target="_blank" rel="noopener">https://www.zhihu.com/question/48914419</a><br>m3u8 相关的内容</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ffmpeg </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ffmpeg </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>视频文件转FLV</title>
+      <link href="/2018/10/12/%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6%E8%BD%ACFLV/"/>
+      <url>/2018/10/12/%E8%A7%86%E9%A2%91%E6%96%87%E4%BB%B6%E8%BD%ACFLV/</url>
+      
+        <content type="html"><![CDATA[<p>从文件标题可以看出，flv并不是视频文件？<br>视频文件： mp4 等<br>它也是一种视频文件格式； </p><p>flv格式 编辑<br>FLV流媒体格式是sorenson公司开发的一种视频格式，全称为Flash Video。它的出现有效地解决了视频文件导入Flash后，使导出的SWF文件体积庞大，不能在网络上很好的使用等缺点。</p><p>flv在网络的直播与点播场景中【flv也是一种常见的格式】，flv是adobe不发的一种以作为直播也可以作为点播的封装格式。<br>格式组成（简单）： 均以FLVTAG的形式存在，并且每个TAG都是独立存在的。</p><p></p><h2>一、flv 文件的标准格式 </h2><p></p><p></p><h3>1、文件格式</h3><br>两部分： （1）flv文件头，（2）flv文件内容<p></p><p>flv文件信息如下：<br><img src="../../../../asset/Snip20181012_29.png" alt="flv 文件信息"><br>得出：<br>1）文件签名占用了 3个字节， 组成： flv<br>2）文件版本， 常见为1<br>3）接下来文件前5位位0【保留】，接着音频展示设置为1，下一位为0【保留】，再下一位为视频展示，设置为1；<br>eg：如果是一个音视频都展示为flv文件，那么这个字节会设置为0x05（00000101）<br>4）4字节的数据，为flv文件头数据的偏移位置。<br>然后可以对flv二进制的文件进行解析，可以使用工具，hex fieid工具；</p><p></p><h3>2、flv文件内容格式解析 </h3><br>如下面的图：<br><img src="../../../../asset/Snip20181012_30.png" alt="flv 文件信息"><br>计算每个TAG的大小， 为11（tag的header） + tag的body的大小；<br>flv文件内容的格式为FLVTAG，<br>FLVTAG分为两部分：<br>1）TAGHeader部分<br>2）TAGBody部分<p></p><p></p><h3>3、FLVTAG格式解析</h3><br>看下面的图：<br><img src="../../../../asset/Snip20181012_31.png" alt="flv 文件内容1"><br><img src="../../../../asset/Snip20181012_32.png" alt="flv 文件内容2"><br>1）保留为占2位， 最大为：11b<br>2)滤镜位占用1位，最大为1b<br>3）TAG类型占用5位，最大声为11111b常见为：0x08, 0x09, 0x12,处理，和保留、滤镜公用一个字节，一般处理将保留位于滤镜设置为0；<br>4）数据大小：24b（3bytes）<br>5）时间戳大小：24b（3bytes）；最大：0xffffff（16777215ms）转化为16777s， 279m，4.66h，所以，flv格式可以存储达到4.66小时；<br>6）扩展时间8b（1byte），最大为255，扩展时间戳使得flv原有的时间戳得到扩展，所以不仅仅是4.66H，可以到达49.7D；<br>7)流ID大小24b（3bytes），最大为0xFFFFFF，不过flv中一直将其存储为0<br>8）接下来就是header之后的数据，为TAG的data，大小为flag的Header中DataSize中存储的大小，存储的数据分为视频数据，音频数据，以及脚本数据。<p></p><p></p><h3>4、video tag解析</h3><br>如果header的flvType为0x09，则TAG为视频数据TAG，falv支持多种视频格式，说明：<br><img src="../../../../asset/Snip20181012_33.png" alt="flv videotag 0"><br><img src="../../../../asset/Snip20181012_34.png" alt="flv videotag 1"><br>DTS： 主要用于视频的解码,在解码阶段使用；Decode Time Stamp。DTS主要是标识读入内存中的ｂｉｔ流在什么时候开始送入解码器中进行解码。<br>PTS： 主要用于视频的同步和输出.在display的时候使用； Presentation Time Stamp。PTS主要用于度量解码后的视频帧什么时候被显示出来。<p></p><p></p><h3>5、audio tag数据格式解析</h3><br>tagtype = 0x08， 为音频，<br>音频可以封装的压缩音频编码可以有很多种；<br><img src="../../../../asset/Snip20181012_35.png" alt="flv audio tag 1"><br><img src="../../../../asset/Snip20181012_36.png" alt="flv audio tag 1"><p></p><p></p><h3>6、scriptData 格式解析</h3><br>tagtype = 0x12 ,这个数据为scriptData类型，scriptData常见的展示方式为flv的metadata，里面存储的数据格式一般为AMF数据；<br><img src="../../../../asset/Snip20181012_37.png" alt="flv script data"><br>更多解析可以查看官方文档；<p></p><p></p><h2>二、ffmpeg转flv参数 </h2><br>执行命令：ffmpeg -i 1519916400.mp4 -c copy -f flv output.flv<br><img src="../../../../asset/Snip20181012_37.png" alt="flv ffmpeg 转flv参数"><p></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> ffmpeg </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ffmpeg </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>ModelCreation</title>
+      <link href="/2018/10/10/ModelCreation/"/>
+      <url>/2018/10/10/ModelCreation/</url>
+      
+        <content type="html"><![CDATA[<p>ModelCreation 模型创建</p><p></p><h3> 基本实现</h3><br>1、实现了基本的json数据解析为模型 <br><br>2、实现了json数据里面的嵌套，eg：字典[key/value], 数组等<br><br>3、添加了网络请求的参数来进行处理<p></p><p></p><h3>结果</h3><br>1、首先生成右边的模型 <br><br>2、基于1的操作之后，点击生成文件。在log下找到路径，可以找到对应的文件 <br><p></p><p>若是出现什么错误，可以查看下面打印的log；</p><p></p><h3>操作详图</h3><br><img src="../../../../asset/Snip20181010_4.png" alt="操作图像"><p></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> oc </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
+      <title>ffmpeg转封装【ffmpeg 从入门到精通】</title>
+      <link href="/2018/10/07/ffmpeg%E8%BD%AC%E5%B0%81%E8%A3%85%E3%80%90ffmpeg-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A%E3%80%91/"/>
+      <url>/2018/10/07/ffmpeg%E8%BD%AC%E5%B0%81%E8%A3%85%E3%80%90ffmpeg-%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E7%B2%BE%E9%80%9A%E3%80%91/</url>
+      
+        <content type="html"><![CDATA[<p>音视频文件转mp4格式</p><p>ffmpeg 对媒体格式进行转封装；<br>媒体格式转封装是什么？？？</p><p>1）mp4 格式<br>2）格式解析方式、<br>3）如何获取mp4格式文件解析时需要的数据<br>4）mp4的可视化分析工具，<br>5）使用ffmpeg封装mp4文件</p><p></p><h3> 一、了解mp4的视频优势 </h3><br>    跨平台好， 可以使用flash、ios、android 的H5播放。<p></p><p></p><h3> 二、MP4基本格式 </h3><br>MP4标准： ISO-14496 part 12 ， ISO-14496 part 14<br>这个链接如何进行查看？？？？ 【这个可以直接搜索，然后看维基百科的内容】<br><a href="https://en.wikipedia.org/wiki/MPEG-4" target="_blank" rel="noopener">https://en.wikipedia.org/wiki/MPEG-4</a><p></p><p></p><h4>1、几个概念：</h4><br>    （1）MP4 = (n)Box + (n)fullBox【 MP4是由许多个Box 与fullBox组成】<br>    （2）Box = Header + Data<br>    （3）FullBox 是Box的扩展，基于Box结构， 在Header中增加了8位version标志 和24位flag标志。<br>    （4）Header 包含了整个Box的长度大小(size)和类型(type)<br>        当size等于0时，代表这个Box是文件的最后一个Box；<br>        当size等于1时，代表Box长度需啊哟更多的位来描述, 在后面定义一个64位的largesize来描述Box长度。<br>        当Type为uuid时，说明这个Box中的数据是用户自定义扩展类型。<br>    (5)Data 是Box的实际数据，可以是纯数据，也可以是更多的子Box。<br>    (6)当一个Box中Data是一系列的子Box时，这个Box又可以成为Container（容器）Box。<p></p><p></p><h4>2、Mp4 常用参考标准排列方式</h4><p></p><p></p><h5>1）看书p61<h5><br>note：<br>MP4标准中描述的moov与mdat 的存放位置前后并没有进行强制要求，所以这些时候moov这个Box在mdat的后面和前面都有可能；<br>在互联网视频点播中，如果希望MP4文件被迅速打开，则需要将moov存放在mdat的前面；<br>如果放在后面，则需要将mp4文件下载完成了之后才可以进行播放。<p></p><p>下面是表的主要信息：</p><p></p><h6> <1>moov容器 </1></h6><br>moov定了一个mp4文件中的数据信息【meta信息】，类型是moov， 是一个容器atom，其至少必须包含以下三种atom中的一种：<br>【atom是啥？ 隐式是存放音视频数据信息的一种数据结构】<br>    1）mvhd(movie header atom) 存放未压缩过的影片信息的头容器<br>    2）cmov（compressed movied atom）压缩过的电影信息容器，不常用<br>    3）rmra（reference movie atom） 参考电影信息容器，不常用<br>    4）包含其他容器信息，eg：影片剪辑信息(clipping atom(clip))、一个或几个trakAtom(trak)、一个Color table atom(atab) 和一个user data atom(udta)<p></p><p>详解：<br>    1）mvhd 定义多媒体的time scale ，duration以及display characteristic；<br>        track中定义了多媒体文件中的一个track信息，track是多媒体文件中可以独立操作的媒体单位，例如： 一个音频流就是一个track，一个视频流就是一个track。<br>    使用二进制查看工具打开吗，哎一个mp4 文件。？？？ 使用什么工具？Hex fiend 、atom inspector工具打开<br>    <img src="../../../../asset/Snip20181007_2.png" alt="使用二进制查看工具打开mp4文件(Hex fiend )"><br>    <img src="../../../../asset/Snip20181009_29.png" alt="使用二进制查看工具打开mp4文件(Hex fiend )"><br>    上面两张图中，上一张是视频被截断的，下一张是完整的视频， 我们开始应该尽可能的使用完整的视频<br>    <img src="../../../../asset/Snip20181007_4.png" alt="atom inspector"></p><p>下面是moov参数：<br><img src="../../../../asset/Snip20181008_23.png" alt="moov 参数"></p><p></p><h3>三、mp4 分析工具</h3><br>mp4封装格式的分析工具：<br>ffmpeg、elecard streamEye/ mp4box, mp4info<p></p><p></p><h5>1)Elecard StreamEye </h5><br>    <1>可以查看帧的排列信息，将I帧，p帧、B帧显示不同颜色；而且柱的长短根据帧的大小展示；<br>    <2>mp4内容信息，包括流的信息、宏块的信息、文件头的信息、图像的信息以及文件的信息等。<br>set volume bootability and startup disk options,<br>设置启动能力和启动磁盘选项<br><a href="https://www.elecard.com/videos" target="_blank" rel="noopener">https://www.elecard.com/videos</a><br>注册了一个，说5S发邮件给我，但是没有收到，下次使用google的邮箱看看<p></p><p></p><h5>2) 查看一个媒体文件，使用vi来也是可以看到基本的内容的</h5><br><img src="../../../../asset/Snip20181008_24.png" alt="moov 参数"><p></p><p></p><h5>3) mp4box</h5><br>mp4box 是GPAC 项目中的一个组件， 可以通过mp4box针对媒体文件进行合成、拆解等操作。<br><img src="../../../../asset/Snip20181008_27.png" alt="mp4box 里面的参数"><p></p><p>mp4box 有很多子帮助项，<br>eg： DASH 切片、编码、metadata、BIFS流、ISMA、SWF相关帮助信息等。<br>分析mp4文件,命令如下:</p><blockquote><p>mp4box -info 1519916400.mp4<br><a href="../../../../asset/mp4box.txt">输出信息</a><br>可以看到有timescale 、duration、framegremented等内容</p></blockquote><p></p><h5>4) mp4info </h5><br>可以将mp4文件中的Box 解析出来，并将其中数据展现出来<br>官网链接：<br><a href="https://www.bento4.com/" target="_blank" rel="noopener">https://www.bento4.com/</a><br><a href="https://www.bento4.com/documentation/mp4info/" target="_blank" rel="noopener">https://www.bento4.com/documentation/mp4info/</a><br>在mac上只有命令行的，没有图形界面的内容，这个到时候在进行写个mac应用吧；<p></p><p>直接执行： mp4info output.mp4<br>输出结果如下：<br><a href="../../../../asset/mp4info.txt">输出结果</a></p><p></p><h3> 四、mp4在ffmpeg中的Demuxer</h3><br>1) ffmpeg -h demuxer=mp4<br>结果如下图：<br><img src="../../../../asset/Snip20181009_28.png" alt="ffmpeg 中的Demuxer"><br>上面的图可以看出，mp4的demuxer与mov、3pg、m4a、3g2、mj2的Demuxer相同；可以详细查看图中的选项；<p></p><p>2) 在解析MP4文件，通过ffmpeg解析时，可以通过参数ignore_editlist 忽略Editlist Atom 对MP4的解析；<br>不过通常使用默认操作就可以了；</p><p></p><h3> 五、mp4在ffmpeg中的Muxer</h3><br>mp4在封装相对于解封装的时候复杂点；上面的几种格式在封装和解封装上基本上没有太大差别；·<br>输入命令：ffmpeg -h muxer=mp4<br>结果如下：<br><img src="../../../../asset/Snip20181010_9.png" alt="ffmpeg 中的muxer"><br><img src="../../../../asset/Snip20181010_10.png" alt="ffmpeg 中的muxer"><br>mp4的muxer支持的参数比较复杂，例如：支持在视频关键帧处切片，只支持设置moov容器大小的最大值，支持设置encrypt加密等。<p></p><p>下面是对应参数了解：<br>    1）faststart </p></2></1></h5></h5>]]></content>
+      
+      
+      <categories>
+          
+          <category> ffmpeg </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> ffmpeg </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>ios unit test</title>
       <link href="/2018/09/28/ios-unit-test/"/>
       <url>/2018/09/28/ios-unit-test/</url>
@@ -145,7 +237,7 @@
       <link href="/2018/05/03/ffmpeg-%E4%BA%86%E8%A7%A3/"/>
       <url>/2018/05/03/ffmpeg-%E4%BA%86%E8%A7%A3/</url>
       
-        <content type="html"><![CDATA[<p>ffmpeg 的编译 与命令行工具</p><p>1、 ffmpeg (fast forward MPEG)【mpeg 是编码的标准】<br>提供了一套可以用来记录、处理数字音频、视频，并将其转换为流的开源框架；提供了录制，转换以及流音视频的完整解决方案。</p><p>ffmpeg 结构图<br><img src="../asset/Snip20180503_1.png" alt="ffmpeg 模块之间的结构"></p><p>ffmpeg可以通过源码进行编译生成， 一般都是符合GUN的软件方式配置；<br>mac 上也是可以直接通过打包好的文件进行安装。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">默认的编译生成：</span><br><span class="line">4个可执行文件和8个静态库，</span><br><span class="line">可执行文件： </span><br><span class="line">1）转码、推流、Dump媒体文件的ffmpeg</span><br><span class="line">2）用于播放媒体文件的ffplay</span><br><span class="line">3）用于获取媒体文件信息的ffprobe</span><br><span class="line">4）作为简单流媒体服务器的ffserver</span><br><span class="line"></span><br><span class="line">8个静态库（ffmpeg的8个模块）</span><br><span class="line">AVUtil ：核心工具库</span><br><span class="line">AVFormat ： 文件格式和协议库</span><br><span class="line">AVCodec： 编解码库</span><br><span class="line">AVFilter： 音视频滤镜库</span><br><span class="line">AVDevice： 输入和输出设备库</span><br><span class="line">SwrRessample： 用于音视频重采样</span><br><span class="line">SWSScale ： 将图像进行格式转换模块</span><br><span class="line">PostProc： 用于进行后台处理</span><br></pre></td></tr></table></figure><p>ffmpeg 命令行工具的使用<br>客户单： ffmpeg /ffplay /ffprobe<br>服务器： ffserver</p><p>1、ffprobe<br><img src="../asset/Snip20180503_2.png" alt="示例：查看一首歌的信息如下"><br><code>1）在上面的截图中可以看到，这首歌的市场是00:05:07.28， 开始时间是 0.025056，整个文件的比特率是329kbit/s</code><br><code>2）下一行（第一个流）： 音频流， 格式： mp3 采样率：44100Hz 声道：(stereo)立体声， 采样格式：fltp （float planner）[p: 表示的是平铺（planner）]，路流比特率是：320kb/s</code></p><p><img src="../asset/Snip20180504_4.png" alt="示例：查看一个视频的信息如下"><br><code>matadata信息：  encoder         : Wxmm_900012345 表示输出格式是Wxmm， 后面的数字是ffmpeg的代号；</code><br><code>下一个部分是时间，  Duration: 00:00:59.13, start: 0.000000, bitrate: 542 kb/s ， 可以知道对应的时间以及开始时间， 比特率等等；</code><br><code>Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 368x640, 487 kb/s, 24 fps, 24 tbr, 12288 tbn, 48 tbc (default)表示第一个流是视频流， 编码格式是h264（封装格式是AVC1），每一帧的数据表示的是yuv420p格式，分辨率是：368x640 ， 路流的比特率是：487 kb/s ， 帧率是：24fps；</code><br>`<br>    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 48 kb/s (default)<br>  下面这个是一个音频流，编码方式是acc，（封装格式是mp4，并且采用的profile 是LC格式） ， 采样率是： 44100HZ， 声道是立体声， 音频流的比特率是48kb/s</p><p>`<br>详细的用法哈可以查看ffprobe对应的文件，或者man以下；</p><p>2、ffplay<br>ffplay 是以ffmpeg 框架为基础，外加渲染音视频的库libSDL来构建的媒体文件播放器；<br>【所以安装了ffmpeg，发现还没有ffplay这个命令，一定要记得安全libSDL（最新是libSDL2）】<br><img src="../asset/Snip20180504_6.png" alt="示例：用ffplay播放视频（对应的播放的率变换以及+ 视频界面）"><br><code>视频中s键会进入frame-step模式，s就会播放下一帧；观察某些视频内部的一些技巧，</code></p><p><img src="../asset/Snip20180504_6.png" alt="示例：用ffplay播放音频（对应的播放的率变换以及+ 语谱图画界面）"><br><img src="../asset/Snip20180504_10.png" alt="示例：用ffplay播放音频（对应的播放的率变换以及+ 语谱图画界面）"><br><code>左右键分别是退10s和快进10s， 上下键分别是退1m和快进1m；esc退出播放， w键将会绘制音频的波形图等；p暂停，</code></p><p>ffplay 当然还有一些播放参数选择：<br>ffplay WeChatSight1485.mp4 -loop 2  循环播放2次；<br>ffplay WeChatSight1485.mp4 -ast 1 播放的是第一个音频流，如果播放第二个音频流的话就会静音；<br>ffplay WeChatSight1485.mp4 -vst 0 播放第一个视频流，  也可以播放第二个视频流，由于没有，显示黑屏；(这个参数也要看对应的index值是多少)</p><p>ffplay有用的一些参数：<br>1） 裸数据，用ffplay播放裸数据， 音频的pcm以及视频的YUV430P 或rbga；</p><p>ffplay 是可以播放裸数据的音视频的，但是需要设置对应的参数：<br>音频： 格式（-f） /声道数 （-channels）、 采样率（-ar）这个要设置正确，就是在pcm的头部添加44个字节；</p><p>视频播放的同步： 音画同步方式：<br>1） 以音频为主轴看作为同步源<br>2） 以视频为主轴作为同步源<br>3） 以外部时钟为主时间轴作为同步源<br>ffplay ***.mp4 -sync audio/video/ext</p><p>3、ffmpeg 强大的媒体转换工具<br>查看ffmpeg中的参数，可以使用man ffmpeg<br>查看有关的参数是如何进行使用；<br>1） 通用参数<br>2） 视频参数<br>3） 音频参数</p><p>使用过程：<br><a href="https://github.com/zhanxiaokai/iOS-FFmpegDecoder" target="_blank" rel="noopener">项目的实例代码</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1）引入头文件</span><br><span class="line">2）注册协议、格式与编解码器</span><br><span class="line">3)打开媒体文件源，并设置超时回调</span><br><span class="line">4) 寻找各个流，并且打开对应的解码器</span><br><span class="line">5）初始化解码后数据的结构体</span><br><span class="line">6）读取流内容并且解码</span><br><span class="line">7）处理解码后的裸数据</span><br><span class="line">8）关闭所有资源</span><br></pre></td></tr></table></figure></p>]]></content>
+        <content type="html"><![CDATA[<p>ffmpeg 的编译 与命令行工具</p><p>1、 ffmpeg (fast forward MPEG)【mpeg 是编码的标准】<br>提供了一套可以用来记录、处理数字音频、视频，并将其转换为流的开源框架；提供了录制，转换以及流音视频的完整解决方案。</p><p>ffmpeg 结构图<br><img src="../../../../asset/Snip20180503_1.png" alt="ffmpeg 模块之间的结构"></p><p>ffmpeg可以通过源码进行编译生成， 一般都是符合GUN的软件方式配置；<br>mac 上也是可以直接通过打包好的文件进行安装。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">默认的编译生成：</span><br><span class="line">4个可执行文件和8个静态库，</span><br><span class="line">可执行文件： </span><br><span class="line">1）转码、推流、Dump媒体文件的ffmpeg</span><br><span class="line">2）用于播放媒体文件的ffplay</span><br><span class="line">3）用于获取媒体文件信息的ffprobe</span><br><span class="line">4）作为简单流媒体服务器的ffserver</span><br><span class="line"></span><br><span class="line">8个静态库（ffmpeg的8个模块）</span><br><span class="line">AVUtil ：核心工具库</span><br><span class="line">AVFormat ： 文件格式和协议库</span><br><span class="line">AVCodec： 编解码库</span><br><span class="line">AVFilter： 音视频滤镜库</span><br><span class="line">AVDevice： 输入和输出设备库</span><br><span class="line">SwrRessample： 用于音视频重采样</span><br><span class="line">SWSScale ： 将图像进行格式转换模块</span><br><span class="line">PostProc： 用于进行后台处理</span><br></pre></td></tr></table></figure><p>ffmpeg 命令行工具的使用<br>客户单： ffmpeg /ffplay /ffprobe<br>服务器： ffserver</p><p>1、ffprobe<br><img src="../../../../asset/Snip20180503_2.png" alt="示例：查看一首歌的信息如下"><br><code>1）在上面的截图中可以看到，这首歌的市场是00:05:07.28， 开始时间是 0.025056，整个文件的比特率是329kbit/s</code><br><code>2）下一行（第一个流）： 音频流， 格式： mp3 采样率：44100Hz 声道：(stereo)立体声， 采样格式：fltp （float planner）[p: 表示的是平铺（planner）]，路流比特率是：320kb/s</code></p><p><img src="../../../../asset/Snip20180504_4.png" alt="示例：查看一个视频的信息如下"><br><code>matadata信息：  encoder         : Wxmm_900012345 表示输出格式是Wxmm， 后面的数字是ffmpeg的代号；</code><br><code>下一个部分是时间，  Duration: 00:00:59.13, start: 0.000000, bitrate: 542 kb/s ， 可以知道对应的时间以及开始时间， 比特率等等；</code><br><code>Stream #0:0(und): Video: h264 (High) (avc1 / 0x31637661), yuv420p, 368x640, 487 kb/s, 24 fps, 24 tbr, 12288 tbn, 48 tbc (default)表示第一个流是视频流， 编码格式是h264（封装格式是AVC1），每一帧的数据表示的是yuv420p格式，分辨率是：368x640 ， 路流的比特率是：487 kb/s ， 帧率是：24fps；</code><br>`<br>    Stream #0:1(und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 48 kb/s (default)<br>  下面这个是一个音频流，编码方式是acc，（封装格式是mp4，并且采用的profile 是LC格式） ， 采样率是： 44100HZ， 声道是立体声， 音频流的比特率是48kb/s</p><p>`<br>详细的用法哈可以查看ffprobe对应的文件，或者man以下；</p><p>2、ffplay<br>ffplay 是以ffmpeg 框架为基础，外加渲染音视频的库libSDL来构建的媒体文件播放器；<br>【所以安装了ffmpeg，发现还没有ffplay这个命令，一定要记得安全libSDL（最新是libSDL2）】<br><img src="../asset/Snip20180504_6.png" alt="示例：用ffplay播放视频（对应的播放的率变换以及+ 视频界面）"><br><code>视频中s键会进入frame-step模式，s就会播放下一帧；观察某些视频内部的一些技巧，</code></p><p><img src="../asset/Snip20180504_6.png" alt="示例：用ffplay播放音频（对应的播放的率变换以及+ 语谱图画界面）"><br><img src="../asset/Snip20180504_10.png" alt="示例：用ffplay播放音频（对应的播放的率变换以及+ 语谱图画界面）"><br><code>左右键分别是退10s和快进10s， 上下键分别是退1m和快进1m；esc退出播放， w键将会绘制音频的波形图等；p暂停，</code></p><p>ffplay 当然还有一些播放参数选择：<br>ffplay WeChatSight1485.mp4 -loop 2  循环播放2次；<br>ffplay WeChatSight1485.mp4 -ast 1 播放的是第一个音频流，如果播放第二个音频流的话就会静音；<br>ffplay WeChatSight1485.mp4 -vst 0 播放第一个视频流，  也可以播放第二个视频流，由于没有，显示黑屏；(这个参数也要看对应的index值是多少)</p><p>ffplay有用的一些参数：<br>1） 裸数据，用ffplay播放裸数据， 音频的pcm以及视频的YUV430P 或rbga；</p><p>ffplay 是可以播放裸数据的音视频的，但是需要设置对应的参数：<br>音频： 格式（-f） /声道数 （-channels）、 采样率（-ar）这个要设置正确，就是在pcm的头部添加44个字节；</p><p>视频播放的同步： 音画同步方式：<br>1） 以音频为主轴看作为同步源<br>2） 以视频为主轴作为同步源<br>3） 以外部时钟为主时间轴作为同步源<br>ffplay ***.mp4 -sync audio/video/ext</p><p>3、ffmpeg 强大的媒体转换工具<br>查看ffmpeg中的参数，可以使用man ffmpeg<br>查看有关的参数是如何进行使用；<br>1） 通用参数<br>2） 视频参数<br>3） 音频参数</p><p>使用过程：<br><a href="https://github.com/zhanxiaokai/iOS-FFmpegDecoder" target="_blank" rel="noopener">项目的实例代码</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">1）引入头文件</span><br><span class="line">2）注册协议、格式与编解码器</span><br><span class="line">3)打开媒体文件源，并设置超时回调</span><br><span class="line">4) 寻找各个流，并且打开对应的解码器</span><br><span class="line">5）初始化解码后数据的结构体</span><br><span class="line">6）读取流内容并且解码</span><br><span class="line">7）处理解码后的裸数据</span><br><span class="line">8）关闭所有资源</span><br></pre></td></tr></table></figure></p>]]></content>
       
       
       <categories>

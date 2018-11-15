@@ -1,0 +1,74 @@
+File:
+  major brand:      isom
+  minor version:    200
+  compatible brand: isom
+  compatible brand: iso2
+  compatible brand: avc1
+  compatible brand: mp41
+  fast start:       yes
+
+Movie:
+  duration:   141049 ms
+  time scale: 1000
+  fragments:  no
+
+Found 2 Tracks
+Track 1:
+  flags:        3 ENABLED IN-MOVIE
+  id:           1
+  type:         Video
+  duration: 141000 ms
+  language: und
+  media:
+    sample count: 3525
+    timescale:    12800
+    duration:     1804800 (media timescale units)
+    duration:     141000 (ms)
+    bitrate (computed): 274.611 Kbps
+  display width:  640.000000
+  display height: 360.000000
+  frame rate (computed): 25.000
+  Sample Description 0
+    Coding:      avc1 (H.264)
+    Width:       640
+    Height:      360
+    Depth:       24
+    AVC Profile:          100 (High)
+    AVC Profile Compat:   0
+    AVC Level:            30
+    AVC NALU Length Size: 4
+    AVC SPS: [6764001eacd980a02ff961000003000100000300320f162d9a]
+    AVC PPS: [68e9794b22c0]
+    Codecs String: avc1.64001E
+Track 2:
+  flags:        3 ENABLED IN-MOVIE
+  id:           2
+  type:         Audio
+  duration: 141049 ms
+  language: und
+  media:
+    sample count: 3037
+    timescale:    44100
+    duration:     6220217 (media timescale units)
+    duration:     141048 (ms)
+    bitrate (computed): 64.008 Kbps
+  Sample Description 0
+    Coding:      mp4a (MPEG-4 Audio)
+    Stream Type: Audio
+    Object Type: MPEG-4 Audio
+    Max Bitrate: 64012
+    Avg Bitrate: 64007
+    Buffer Size: 0
+    Codecs String: mp4a.40.5
+    MPEG-4 Audio Object Type: 5 (Spectral Band Replication)
+    MPEG-4 Audio Decoder Config:
+      Sampling Frequency: 22050
+      Channels: 2
+      Extension:
+        Object Type: Spectral Band Replication
+        SBR Present: yes
+        PS Present:  no
+        Sampling Frequency: 44100
+    Sample Rate: 44100
+    Sample Size: 16
+    Channels:    2
