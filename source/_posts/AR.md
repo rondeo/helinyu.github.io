@@ -75,5 +75,13 @@ AR软件：
 （6）视辰 EasyAR 视辰科技开发
 
 
+AR内容
+Google Tango引擎（2014） ARCore(2017） HoloLens (MR 2016)
+Facebook AR开发平台爱camera effects platform 
+apple 收购AR引擎开发商Metaio ， 引入ATeamAR 程序开发包
+
+（1）原深感摄像头（trueDepth camera）
+（2）设计跟踪、场景理解、集合渲染、人脸跟踪
+
 
 
