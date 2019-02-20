@@ -3,6 +3,29 @@
   
     
     <entry>
+      <title>TCP和UDP</title>
+      <link href="/2019/02/19/TCP%E5%92%8CUDP/"/>
+      <url>/2019/02/19/TCP%E5%92%8CUDP/</url>
+      
+        <content type="html"><![CDATA[<p>面试题：<br>1、理解TCP、UDP网络协议，熟悉Socket网络程序设计方法；</p><blockquote><p>1) 理解tcp、udp的简历<br>2） 理解tcp、udp的详细格式的内容<br>3） socket的编程， 我们应该是IM的那一个功能精心了处理； </p></blockquote><p>tcp和udp的基本简介<br>tcp的三级握手<br>tcp和udp的基本格式<br>IM的实现方式，里面就使用了tcp或者udp上面的内容</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 计算机网络 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机网络 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>C语言标准库等</title>
       <link href="/2019/02/17/C%E8%AF%AD%E8%A8%80%E6%A0%87%E5%87%86%E5%BA%93%E7%AD%89/"/>
       <url>/2019/02/17/C%E8%AF%AD%E8%A8%80%E6%A0%87%E5%87%86%E5%BA%93%E7%AD%89/</url>
