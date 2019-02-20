@@ -51,7 +51,7 @@
 		4139B0B1221D50A10032B560 /* RunloopWorkspaceUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RunloopWorkspaceUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4139B0B5221D50A10032B560 /* RunloopWorkspaceUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RunloopWorkspaceUITests.m; sourceTree = "<group>"; };
 		4139B0B7221D50A10032B560 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4139B172221D50C00032B560 /* CF-1151.16 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "CF-1151.16"; path = "../../RunLoop/RunLoop/CF-1151.16"; sourceTree = "<group>"; };
+		4139B2D8221D52090032B560 /* CF-1151.16 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "CF-1151.16"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,7 +102,7 @@
 		4139B090221D509F0032B560 /* RunloopWorkspace */ = {
 			isa = PBXGroup;
 			children = (
-				4139B172221D50C00032B560 /* CF-1151.16 */,
+				4139B2D8221D52090032B560 /* CF-1151.16 */,
 				4139B091221D509F0032B560 /* AppDelegate.h */,
 				4139B092221D509F0032B560 /* AppDelegate.m */,
 				4139B094221D509F0032B560 /* ViewController.h */,
