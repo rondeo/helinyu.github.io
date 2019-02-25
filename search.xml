@@ -3,13 +3,48 @@
   
     
     <entry>
+      <title>CMake 以及衍生</title>
+      <link href="/2019/02/24/cmake-%E4%BB%A5%E5%8F%8A%E8%A1%8D%E7%94%9F/"/>
+      <url>/2019/02/24/cmake-%E4%BB%A5%E5%8F%8A%E8%A1%8D%E7%94%9F/</url>
+      
+        <content type="html"><![CDATA[<p>cmake：<a href="https://github.com/Kitware/CMake.git" target="_blank" rel="noopener">源代码</a> <a href="https://cmake.org/" target="_blank" rel="noopener">官方网址</a>  <a href="https://cmake.org/cmake/help/v3.12/" target="_blank" rel="noopener">3.12版本文档</a></p><p>CMake[cross platform make]是一个跨平台的安装（编译）工具，<br>1）可以用简单的语句来描述所有平台的安装(编译过程)。<br>2）输出各种各样的makefile或者project文件，能测试编译器所支持的C++特性,类似UNIX下的automake。只是 CMake 的组态档取名为 CMakeLists.txt。<br>3）Cmake 并不直接建构出最终的软件，而是产生标准的建构档（如 Unix 的 Makefile 或 Windows Visual C++ 的 projects/workspaces），然后再依一般的建构方式使用。  这使得熟悉某个集成开发环境（IDE）的开发者可以用标准的方式建构他的软件，这种可以使用各平台的原生建构系统的能力是 CMake 和 SCons 等其他类似系统的区别之处。</p><p>功能：<br>CMake 可以编译源代码、制作程序库、产生适配器（wrapper）、还可以用任意的顺序建构执行档。CMake 支持 in-place 建构（二进档和源代码在同一个目录树中）和 out-of-place 建构（二进档在别的目录里），因此可以很容易从同一个源代码目录树中建构出多个二进档。CMake 也支持静态与动态程式库的建构。<br>“CMake”这个名字是“cross platform make”的缩写。虽然名字中含有“make”，但是CMake和Unix上常见的“make”系统是分开的，而且更为高阶。</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">make 和cmake有什么区别？</span><br><span class="line">1、GCC是多种语言的编译器；（括C、C++、Objective-C、Fortran、Java等等）【如果你的源文件只有一个的时候，直接用gcc命令编译它； 多个源文件时，用gcc命令逐个去编译时，工作量大且混乱】</span><br><span class="line">2、多个源文件如果编译？ ———&gt;make</span><br><span class="line">一个只能批处理的工具，【本身没有编译和链接的功能】，通过调用makefile文件中用户指定的命令来进行编译和链接的（可能make文件里面就写了gcc的编译命令）</span><br><span class="line">3、makefile文件是什么? 上面： 存储编译命令，；比喻：简单的说就像一首歌的乐谱，make工具就像指挥家，指挥家根据乐谱指挥整个乐团怎么样演奏，make工具就根据makefile中的命令进行编译和链接的。(eg: makel命令中包含调用gcc编译某个源文件的命令)；make做一些简单的工程可以人手工在makefile文件里面添加编译等等命令；【（缺点）如果项目足够很大的时候，这样工作量也很大；如果换了平台，makefile又要重新修改】；</span><br><span class="line">4、[跨平台]CMake工具解决makefile上手工添加命令的缺点；cmake就可以更加简单的生成makefile文件给上面那个make用； 同时扩平台【不用修改makefile文件】， 等等其他功能；</span><br><span class="line">5、cmake如何生成makefile文件的？ —— CMakeLists.txt 文件（学名：组态档），通过它来生成makefile；所以，我们手工写CMakeLists.txt 这个文件即可【这个文件写入简单】</span><br><span class="line">6、</span><br><span class="line">cmake是用来生成Makefile文件的工具，生成Makefile文件的工具还有autotools，Qt环境下还有qmake</span><br><span class="line">参考链接:</span><br><span class="line">https://blog.csdn.net/jc_benben/article/details/78571728</span><br><span class="line">https://www.cnblogs.com/sunsky303/p/7750299.html?utm_source=debugrun&amp;utm_medium=referral</span><br><span class="line"></span><br><span class="line">PS：cmake 不仅仅是make</span><br></pre></td></tr></table></figure><blockquote><p>执行命令： cmake CMakeLists.txt </p></blockquote><p>看一下cmake的代码，里面写了什么， 建立系统、打包、创建测试环境；</p><p>&amp;&amp; ————————————————cmake的简单实用————————————<br>cmake_minimum_required(VERSION 3.12) // 这里的version要注意是当前系统的版本<br><a href="https://www.jianshu.com/p/8df5b2aba316" target="_blank" rel="noopener">项目简单实践</a><br>明天接着运行上面的例子；</p><p>CMakeList.txt 文件构建（写） 这里就是cmake的写法 【注意，写的时候不要有逗号在参数见】</p><p>好像SET这个命令有问题呀；??? 是不是我使用出现了错误还是在mac上不能够这样使用？</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> tool </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> tool </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    <entry>
       <title>ios 知识体系以及架构图</title>
       <link href="/2019/02/20/ios-%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB%E4%BB%A5%E5%8F%8A%E6%9E%B6%E6%9E%84%E5%9B%BE/"/>
       <url>/2019/02/20/ios-%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB%E4%BB%A5%E5%8F%8A%E6%9E%B6%E6%9E%84%E5%9B%BE/</url>
       
-        <content type="html"><![CDATA[]]></content>
+        <content type="html"><![CDATA[<p></p><h2>ios 底层体系</h2><p></p><p><font size="4" color="red">第一部分： oc语法<br></font><br>1）oc对象本质<br>2）kvc/kvo<br>3）instance ,class , meta-class, isa, superclass<br>4)category, load , initialize ,关联对象</p><p><font size="4" color="red">第二部分: block</font><br>1）底层数据结构<br>2）变量捕获<br>3）内存管理<br>4）__block<br>5)循环引用</p><p><font size="4" color="red">第三部分: runtime</font><br>1）非指针isa<br>2）方法缓存<br>3）objc_msgSend<br>4) 消息发送、动态方法解析、消息转发<br>5）super的本质<br>6）常用API</p><p><font size="4" color="red">第四部分:runloop</font><br>1、CFRunLoopModeRef<br>2、CFRunLoopSourceRef<br>3、CFRunLoopObserverRef<br>4、线程保活<br>5、常见应用</p><p><font size="4" color="red">第五部分: 多线程</font><br>1)gcd (GNUstep)<br>2)pthread_rwlock/ barrier_async<br>3)0SSpinLock ,os_unfair_lock, pthread_mutex<br>4)NSLock , NSRecursiveLock ,NSCondition, NSConditionLock<br>5)dispatch_semaphore @synchronize ,atomic</p><p><font size="4" color="red">第六部分:内存管理</font><br>1）定时器内存泄露<br>2）自动释放池<br>3）引用计数<br>4）tagged pointer<br>5) ARC 原理<br>6）__weak 原理</p><p><font size="4" color="red">第七部分:性能优化</font><br>1、卡顿检测<br>2、异常捕获<br>3、安装包瘦身<br>4、启动优化、内存优化、电量优化、网络优化</p><p><font size="4" color="red">第二部分:架构设计</font><br>1）设计模式<br>2）APP架构</p><p></p><h2>有关学习思维导图</h2><br><img src="../../../../asset/WechatIMG6.png" alt="iOS 进阶导图" title="ios 进阶导图"><p></p><p>iOS 推荐书籍：<br>1.《Effective Objective-C 2.0》<br>2.《Objective-C 高级编程》<br>3.《程序员的自我修养》<br>4.《图解HTTP》<br>5.《高性能iOS应用开发》<br>6.《剑指Offer》|《算法图解》</p><p>平时很有必要的书籍：<br>1、《程序员的自我修养————链接、装载、库》 [待]</p>]]></content>
       
       
+      <categories>
+          
+          <category> iOS </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> iOS </tag>
+            
+        </tags>
       
     </entry>
     
