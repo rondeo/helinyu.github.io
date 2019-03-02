@@ -1,5 +1,5 @@
 ---
-title: 关于自己
+title: 关于文档总体概览
 date: 2018-09-18 13:25:49
 type: "about"
 ---
@@ -23,4 +23,8 @@ Please make sure you have the correct access rights and the repository exists. F
 这个很可能就是ssh的key出现了问题，过期等等
 在自己的本地主机中的.ssh/id_rsa.pub 拷贝添加到github上面的项目中，注意消息名字要对
 然后执行： hexo clean && hexo g && hexo d
+
+
+<font size=3 color=red>约定：</font>
+> 【同般】: 表示和我们常常使用的是一样的
 
