@@ -30,7 +30,7 @@
       <link href="/2019/03/03/%E7%BC%96%E8%AF%91%E5%99%A8%E4%BB%A5%E5%8F%8A%E7%BC%96%E8%AF%91%E8%AF%AD%E8%A8%80-01/"/>
       <url>/2019/03/03/%E7%BC%96%E8%AF%91%E5%99%A8%E4%BB%A5%E5%8F%8A%E7%BC%96%E8%AF%91%E8%AF%AD%E8%A8%80-01/</url>
       
-        <content type="html"><![CDATA[<blockquote><p>01 先学习脚本语言以及对应的编译器</p></blockquote><p>这里写入了脚本的语言等等 ， 可以先熟悉一种语言， 比如；ruby<br><a href="">ruby 复习</a></p>]]></content>
+        <content type="html"><![CDATA[<blockquote><p>01 先学习脚本语言以及对应的编译器</p></blockquote><p>选择一种脚本语言， shell， python， ruby ，perl等<br>这里选择了ruby，——————(原因)iOS中很多工具都使用了ruby语言 ，这样可以通过ruby语言去看一些有关的开源代码</p><p>这里写入了脚本的语言等等 ， 可以先熟悉一种语言， 比如；ruby<br><a href="">ruby 复习</a></p>]]></content>
       
       
       <categories>
