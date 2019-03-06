@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="laterite&#39;s blogs">
 <meta property="og:description" content="【基本的语法复习完成即可(对于web的项目也可以去实现看接下来的安排)】  一、ruby语言基础复习 教程的地址【H看】 1、略过  ruby安装不同的平台等环境以及步骤。2、中文编码问题,（有可能有些安装环境并没有支持中文编码）  可能出现的问题： invalid multibyte char (US-ASCII)   PS：   1）设置utf-8解析源码2）设置文件编码为utf-8 保存12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T16:06:36.475Z">
+<meta property="og:updated_time" content="2019-03-06T04:59:17.461Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ruby 语言基础">
 <meta name="twitter:description" content="【基本的语法复习完成即可(对于web的项目也可以去实现看接下来的安排)】  一、ruby语言基础复习 教程的地址【H看】 1、略过  ruby安装不同的平台等环境以及步骤。2、中文编码问题,（有可能有些安装环境并没有支持中文编码）  可能出现的问题： invalid multibyte char (US-ASCII)   PS：   1）设置utf-8解析源码2）设置文件编码为utf-8 保存12">
@@ -450,7 +450,7 @@
 <li>多态性</li>
 <li>继承</li>
 </ul>
-<p>1)类定义： （同般）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Customer</span><br><span class="line">.......</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<p>1)类定义： （同般）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">class Customer</span><br><span class="line">.......</span><br><span class="line"></span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
 <p>2）类中变量 （4种）<br>2.1）局部变量： 方法中定义的变量，局部变量以小写字母或 _ 开始。（同般）<br>2.2）实例变量： 实例变量可以跨任何特定的实例或对象中的方法使用。这意味着，实例变量可以从对象到对象的改变。实例变量在变量名之前放置符号（@）。 【这个不是很理解】<br>2.3）类变量：  可以跨不同的对象，(同般) 类变量在变量名之前放置符号（@@）。<br>2.4）全局变量：类变量不可以跨类使用， 全局变量可以，全局变量总是以美元符号（$）开始。</p>
 <p>3）Ruby 类中的成员函数，函数被称为方法。每个方法是以关键字 def 开始，后跟方法名。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class Sample</span><br><span class="line">   def function</span><br><span class="line">      statement 1</span><br><span class="line">      statement 2</span><br><span class="line">   end</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
 <p>不错的例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/ruby</span><br><span class="line"></span><br><span class="line">class Customer</span><br><span class="line">   @@no_of_customers=0</span><br><span class="line">   def initialize(id, name, addr)</span><br><span class="line">      @cust_id=id</span><br><span class="line">      @cust_name=name</span><br><span class="line">      @cust_addr=addr</span><br><span class="line">   end</span><br><span class="line">   def display_details()</span><br><span class="line">      puts &quot;Customer id #@cust_id&quot;</span><br><span class="line">      puts &quot;Customer name #@cust_name&quot;</span><br><span class="line">      puts &quot;Customer address #@cust_addr&quot;</span><br><span class="line">   end</span><br><span class="line">   def total_no_of_customers()</span><br><span class="line">      @@no_of_customers += 1</span><br><span class="line">      puts &quot;Total number of customers: #@@no_of_customers&quot;</span><br><span class="line">   end</span><br><span class="line">end</span><br><span class="line"></span><br><span class="line"># 创建对象</span><br><span class="line">cust1=Customer.new(&quot;1&quot;, &quot;John&quot;, &quot;Wisdom Apartments, Ludhiya&quot;)</span><br><span class="line">cust2=Customer.new(&quot;2&quot;, &quot;Poul&quot;, &quot;New Empire road, Khandala&quot;)</span><br><span class="line"></span><br><span class="line"># 调用方法</span><br><span class="line">cust1.display_details()</span><br><span class="line">cust1.total_no_of_customers()</span><br><span class="line">cust2.display_details()</span><br><span class="line">cust2.total_no_of_customers()</span><br></pre></td></tr></table></figure></p>
@@ -483,7 +483,33 @@
 <p>15、异常</p>
 <h3>高级内容</h3>
 
-<p>16、面向对象</p>
+<p>16、面向对象 （基本上看了，但是还没有所有的都理解执行了，明天回来再看一遍）</p>
+<blockquote>
+<p>纯粹的面向对象语言； 一切哦都市对象到的形式纯在； 每个值都是一个对象（包括原始的 字符串、数字、true、false）；类本身也是一个对象（类是class类的一个实例）</p>
+</blockquote>
+<p>1)ruby类定义</p>
+<blockquote>
+<p>定义了类的对象的蓝图：定义了类的对象将由什么组成，以及在该对象上能执行什么操作。【属性和方法】<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Box</span><br><span class="line">   code</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>2)定义对象</p>
+<blockquote>
+<p>由类创建，用 new 关键字声明类的对象。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">box1 = Box.new</span><br><span class="line">box2 = Box.new</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>3)initialize 方法 构造方法 （类比其他方法的：constructor<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Box</span><br><span class="line">   def initialize(w,h)</span><br><span class="line">      @width, @height = w, h</span><br><span class="line">   end</span><br><span class="line">end</span><br></pre></td></tr></table></figure></p>
+<p>上面：可以重写带有参数；</p>
+<p>4）实例变量<br>就是ruby中定义的变量；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">@ 	开头 ： 实例变量</span><br><span class="line">@@	开头： 类变量</span><br></pre></td></tr></table></figure></p>
+<p>实例变量，外面不可以直接访问，可以通过下面说的访问器（setter、getter方法）和外部方法；</p>
+<p>5）访问器(getter) &amp; 设置器(setter)方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">由于两种方法非常常用，Ruby 定义了 attr_accessor :variable_name、attr_reader :variable_name、attr_writer :variable_name 三种属性声明方法。其中：accessor=reader+writer。</span><br><span class="line"></span><br><span class="line">同时注意：变量名前一定要带 : ，变量名之间要用 , 分割。</span><br></pre></td></tr></table></figure></p>
+<p>6）实例方法<br>就是对象来进行呢调用的方法 （同般）</p>
+<p>7）类方法 &amp; 类变量</p>
+<blockquote>
+<p>类变量是在类的所有实例中共享的变量(类变量的实例可以被所有的对象实例访问);类变量（@@）作为前缀，类变量必须在类定义中被初始化.</p>
+</blockquote>
+<font color="red"><br>类方法使用 def self.methodname() 定义，类方法以 end 分隔符结尾。类方法可使用带有类名称的 classname.methodname 形式调用</font>
+
+<p>8) to_s<br>任何类都有一个 to_s 实例方法来返回对象的字符串表示形式;</p>
+<p>9) 访问控制 。。。 后续处理</p>
+<p><a href="http://www.runoob.com/ruby/ruby-object-oriented.html" target="_blank" rel="noopener">http://www.runoob.com/ruby/ruby-object-oriented.html</a></p>
 
       
     </div>
