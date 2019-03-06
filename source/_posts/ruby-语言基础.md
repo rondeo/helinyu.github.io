@@ -117,6 +117,7 @@ ruby是完美的面向对象语言
 ```
 class Customer
 .......
+
 end
 ```
 
@@ -249,7 +250,73 @@ ps: 块的概念 ——> 代码块(函数的方式调用) ———>  无参数�
 
 <h3>高级内容</h3>
 
-16、面向对象
+16、面向对象 （基本上看了，但是还没有所有的都理解执行了，明天回来再看一遍）
+> 纯粹的面向对象语言； 一切哦都市对象到的形式纯在； 每个值都是一个对象（包括原始的 字符串、数字、true、false）；类本身也是一个对象（类是class类的一个实例）
+
+1)ruby类定义
+>定义了类的对象的蓝图：定义了类的对象将由什么组成，以及在该对象上能执行什么操作。【属性和方法】
+```
+class Box
+   code
+end
+
+```
+2)定义对象
+> 由类创建，用 new 关键字声明类的对象。
+```
+box1 = Box.new
+box2 = Box.new
+```
+3)initialize 方法 构造方法 （类比其他方法的：constructor
+```
+class Box
+   def initialize(w,h)
+      @width, @height = w, h
+   end
+end
+```
+上面：可以重写带有参数；
+
+4）实例变量
+就是ruby中定义的变量；
+```
+@ 	开头 ： 实例变量
+@@	开头： 类变量
+```
+实例变量，外面不可以直接访问，可以通过下面说的访问器（setter、getter方法）和外部方法；
+
+
+5）访问器(getter) & 设置器(setter)方法
+```
+由于两种方法非常常用，Ruby 定义了 attr_accessor :variable_name、attr_reader :variable_name、attr_writer :variable_name 三种属性声明方法。其中：accessor=reader+writer。
+
+同时注意：变量名前一定要带 : ，变量名之间要用 , 分割。
+```
+
+6）实例方法
+就是对象来进行呢调用的方法 （同般）
+
+7）类方法 & 类变量
+>类变量是在类的所有实例中共享的变量(类变量的实例可以被所有的对象实例访问);类变量（@@）作为前缀，类变量必须在类定义中被初始化.
+<font color=red>
+类方法使用 def self.methodname() 定义，类方法以 end 分隔符结尾。类方法可使用带有类名称的 classname.methodname 形式调用</font>
+
+8) to_s
+任何类都有一个 to_s 实例方法来返回对象的字符串表示形式;
+
+9) 访问控制 。。。 后续处理
+
+http://www.runoob.com/ruby/ruby-object-oriented.html
+
+
+
+
+
+
+
+
+
+
 
 
 
