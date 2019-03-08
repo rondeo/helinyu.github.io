@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="laterite&#39;s blogs">
 <meta property="og:description" content="【基本的语法复习完成即可(对于web的项目也可以去实现看接下来的安排)】  一、ruby语言基础复习 教程的地址【H看】 1、略过  ruby安装不同的平台等环境以及步骤。2、中文编码问题,（有可能有些安装环境并没有支持中文编码）  可能出现的问题： invalid multibyte char (US-ASCII)   PS：   1）设置utf-8解析源码2）设置文件编码为utf-8 保存12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-07T05:36:07.544Z">
+<meta property="og:updated_time" content="2019-03-08T04:48:03.825Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ruby 语言基础">
 <meta name="twitter:description" content="【基本的语法复习完成即可(对于web的项目也可以去实现看接下来的安排)】  一、ruby语言基础复习 教程的地址【H看】 1、略过  ruby安装不同的平台等环境以及步骤。2、中文编码问题,（有可能有些安装环境并没有支持中文编码）  可能出现的问题： invalid multibyte char (US-ASCII)   PS：   1）设置utf-8解析源码2）设置文件编码为utf-8 保存12">
@@ -533,8 +533,43 @@
 <p>23、Ruby XML, XSLT 和 XPath 教程</p>
 <p>24、SOAP</p>
 <p>25、ruby上面多线程的使用过程</p>
-<p>26、Ruby JSON （json数据解析）</p>
-<p>27、RubyGems（ruby包管理器）</p>
+<p>26、Ruby JSON （json数据解析）<br>使用 Ruby 语言来编码和解码 JSON 对象。</p>
+<blockquote>
+<p>gem install json 安装json解析模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/ruby</span><br><span class="line">require &apos;rubygems&apos;</span><br><span class="line">require &apos;json&apos;</span><br><span class="line">require &apos;pp&apos;</span><br><span class="line"> </span><br><span class="line">json = File.read(&apos;input.json&apos;)</span><br><span class="line">obj = JSON.parse(json)</span><br><span class="line"> </span><br><span class="line">pp obj</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>27、RubyGems<br>1&gt; 包管理器 ： 提供一个分发ruby程序和库的标准格式； 提供管理程序安装的工具<br>2&gt; 旨在方便地管理 gem 安装的工具，以及用于分发 gem 的服务器。 类似ubuntu的apt-get</p>
+<p>1)Gem<br>是ruby模块（gems）的包管理器，器包含包的信息，以及安装的文件；<br>Gem依照”.gemspec”文件构建的，包含了有关Gem信息的YAML文件。<br>Ruby代码也可以直接建立Gem，这种情况下通常利用Rake来进行。</p>
+<p>Gem 是 Ruby 模块 (叫做 Gems) 的包管理器。其包含包信息，以及用于安装的文件。</p>
+<p>2）gem命令<br>gem命令用于构建、上传、下载以及安装Gem包。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">gem install mygem 安装</span><br><span class="line">gem uninstall mygem 卸载</span><br><span class="line">gem list --local 本地的gem（已经安装的）</span><br><span class="line">gem list --remote 远程的gem （还没有安装的）</span><br><span class="line">gem rdoc --all 创建gem的rdoc文件</span><br><span class="line">gem fetch mygem 下载一个gem，但不安装</span><br><span class="line">gem search STRING --remote 从可用的gem中搜索</span><br></pre></td></tr></table></figure></p>
+<p>3）gem 包的构建<br>gem命令也被用来构建和维护.gemspec和.gem文件，利用.gemspec文件构建.gem；</p>
+<blockquote>
+<p>gem build mygem.gemspec</p>
+</blockquote>
+<p>4）修改国内源 (修改源) 【国内网络限制】<br>4.1) 国内网络限制原因， 导致rubygems.org 存放在 Amazon S3 上面的资源文件间歇性连接失败。<br>出现错误提示： gem install rack / bundle install 等，<br>使用命令：<br>由于国内网络原因（你懂的），导致 </p>
+<p>所以你会与遇到 gem install rack 或 bundle install 的时候半天没有响应，具体可以用 gem install rails -V 来查看执行过程。<br>修改为淘宝的源： <a href="http://ruby.taobao.org/" target="_blank" rel="noopener">http://ruby.taobao.org/</a></p>
+<blockquote>
+<p>目前发现，淘宝的源没有维护了， 所以还是使用官方的源，官方的源目前可以用；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gem sources -l  // 查看当前的源</span><br><span class="line">gem sources --remove https://rubygems.org/  // 移除这个源</span><br><span class="line">gem sources -a https://ruby.taobao.org/   //  添加这个新的源</span><br><span class="line">gem install rails 安装对应的rails</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p>如果你使用 Gemfile 和 Bundle (例如：Rails 项目)</p>
+<p>用bundle的gem源代码镜像命令:</p>
+<blockquote>
+<p>bundle config mirror.<a href="https://rubygems.org" target="_blank" rel="noopener">https://rubygems.org</a> <a href="https://ruby.taobao.org" target="_blank" rel="noopener">https://ruby.taobao.org</a><br>这样你不用改你的 Gemfile 的 source。</p>
+</blockquote>
+<font color="green">ubuntu上的apt-get等包管理器，都是通过源来下载等操作</font>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
       
     </div>
