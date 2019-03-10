@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="laterite&#39;s blogs">
 <meta property="og:description" content="【基本的语法复习完成即可(对于web的项目也可以去实现看接下来的安排)】  一、ruby语言基础复习 教程的地址【H看】 1、略过  ruby安装不同的平台等环境以及步骤。2、中文编码问题,（有可能有些安装环境并没有支持中文编码）  可能出现的问题： invalid multibyte char (US-ASCII)   PS：   1）设置utf-8解析源码2）设置文件编码为utf-8 保存12">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-08T04:48:03.825Z">
+<meta property="og:updated_time" content="2019-03-10T11:04:33.915Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ruby 语言基础">
 <meta name="twitter:description" content="【基本的语法复习完成即可(对于web的项目也可以去实现看接下来的安排)】  一、ruby语言基础复习 教程的地址【H看】 1、略过  ruby安装不同的平台等环境以及步骤。2、中文编码问题,（有可能有些安装环境并没有支持中文编码）  可能出现的问题： invalid multibyte char (US-ASCII)   PS：   1）设置utf-8解析源码2）设置文件编码为utf-8 保存12">
@@ -535,8 +535,10 @@
 <p>25、ruby上面多线程的使用过程</p>
 <p>26、Ruby JSON （json数据解析）<br>使用 Ruby 语言来编码和解码 JSON 对象。</p>
 <blockquote>
-<p>gem install json 安装json解析模块<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/ruby</span><br><span class="line">require &apos;rubygems&apos;</span><br><span class="line">require &apos;json&apos;</span><br><span class="line">require &apos;pp&apos;</span><br><span class="line"> </span><br><span class="line">json = File.read(&apos;input.json&apos;)</span><br><span class="line">obj = JSON.parse(json)</span><br><span class="line"> </span><br><span class="line">pp obj</span><br></pre></td></tr></table></figure></p>
+<p>gem install json 安装json解析模块</p>
 </blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">input.json</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;President&quot;: &quot;Alan Isaac&quot;,</span><br><span class="line">  &quot;CEO&quot;: &quot;David Richardson&quot;,</span><br><span class="line">  </span><br><span class="line">  &quot;India&quot;: [</span><br><span class="line">    &quot;Sachin Tendulkar&quot;,</span><br><span class="line">    &quot;Virender Sehwag&quot;,</span><br><span class="line">    &quot;Gautam Gambhir&quot;</span><br><span class="line">  ],</span><br><span class="line"> </span><br><span class="line">  &quot;Srilanka&quot;: [</span><br><span class="line">    &quot;Lasith Malinga&quot;,</span><br><span class="line">    &quot;Angelo Mathews&quot;,</span><br><span class="line">    &quot;Kumar Sangakkara&quot;</span><br><span class="line">  ],</span><br><span class="line"> </span><br><span class="line">  &quot;England&quot;: [</span><br><span class="line">    &quot;Alastair Cook&quot;,</span><br><span class="line">    &quot;Jonathan Trott&quot;,</span><br><span class="line">    &quot;Kevin Pietersen&quot;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#!/usr/bin/ruby</span><br><span class="line">require &apos;rubygems&apos;</span><br><span class="line">require &apos;json&apos;</span><br><span class="line">require &apos;pp&apos;</span><br><span class="line"> </span><br><span class="line">json = File.read(&apos;input.json&apos;)</span><br><span class="line">obj = JSON.parse(json)</span><br><span class="line"> </span><br><span class="line">pp obj</span><br></pre></td></tr></table></figure>
 <p>27、RubyGems<br>1&gt; 包管理器 ： 提供一个分发ruby程序和库的标准格式； 提供管理程序安装的工具<br>2&gt; 旨在方便地管理 gem 安装的工具，以及用于分发 gem 的服务器。 类似ubuntu的apt-get</p>
 <p>1)Gem<br>是ruby模块（gems）的包管理器，器包含包的信息，以及安装的文件；<br>Gem依照”.gemspec”文件构建的，包含了有关Gem信息的YAML文件。<br>Ruby代码也可以直接建立Gem，这种情况下通常利用Rake来进行。</p>
 <p>Gem 是 Ruby 模块 (叫做 Gems) 的包管理器。其包含包信息，以及用于安装的文件。</p>
@@ -556,19 +558,6 @@
 <p>bundle config mirror.<a href="https://rubygems.org" target="_blank" rel="noopener">https://rubygems.org</a> <a href="https://ruby.taobao.org" target="_blank" rel="noopener">https://ruby.taobao.org</a><br>这样你不用改你的 Gemfile 的 source。</p>
 </blockquote>
 <font color="green">ubuntu上的apt-get等包管理器，都是通过源来下载等操作</font>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
       
@@ -730,7 +719,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -741,7 +730,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">15</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -752,7 +741,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
