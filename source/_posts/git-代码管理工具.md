@@ -14,3 +14,13 @@ PS： 很可能是因为缓存的问题，也就是没有更新到，
 执行命令：
 >git rm -r --cache "文件夹名称"  // 删除缓存
 >git push -u origin master // 对应的分支
+
+
+2、查看某个人写的代码的数量
+git log --author="felix" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }'
+
+// 或者所有的人：
+ git log --format='%aN' | sort -u | while read name; do echo -en "$name\t"; git log --author="$name" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }' -; done 
+
+ //代码总的函数：
+参考链接： https://segmentfault.com/a/119000000854212
