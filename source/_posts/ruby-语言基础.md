@@ -366,9 +366,39 @@ Ruby 不支持多继承，但是 Ruby 支持 mixins。mixin 就像是多继承�
 
 25、ruby上面多线程的使用过程
 
+
 26、Ruby JSON （json数据解析）
 使用 Ruby 语言来编码和解码 JSON 对象。
 > gem install json 安装json解析模块
+
+```
+input.json
+
+{
+  "President": "Alan Isaac",
+  "CEO": "David Richardson",
+  
+  "India": [
+    "Sachin Tendulkar",
+    "Virender Sehwag",
+    "Gautam Gambhir"
+  ],
+ 
+  "Srilanka": [
+    "Lasith Malinga",
+    "Angelo Mathews",
+    "Kumar Sangakkara"
+  ],
+ 
+  "England": [
+    "Alastair Cook",
+    "Jonathan Trott",
+    "Kevin Pietersen"
+  ]
+}
+
+```
+
 ```
 #!/usr/bin/ruby
 require 'rubygems'
@@ -429,17 +459,4 @@ gem install rails 安装对应的rails
 >bundle config mirror.https://rubygems.org https://ruby.taobao.org
 这样你不用改你的 Gemfile 的 source。
 <font color=green>ubuntu上的apt-get等包管理器，都是通过源来下载等操作</font>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
