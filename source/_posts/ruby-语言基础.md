@@ -362,7 +362,122 @@ Ruby 不支持多继承，但是 Ruby 支持 mixins。mixin 就像是多继承�
 23、Ruby XML, XSLT 和 XPath 教程
 
 
-24、SOAP
+24、ruby service
+1) SOAP (Simple Object Access Protocol 简单对象访问协议) [SOAP 详情](http://www.runoob.com/ruby/ruby-web-services.html)
+> 1、基于XML数据格式交换的协议， 通过http交换信息。
+> 2、交换数据的一种协议规范，一种轻量级、简单、基于XML的协议； 被设计成为web上交换结构化和固化的信息。
+<font color=red size =3 weight=large> 基于xml数据格式进行交换数据 </font>
+
+2）SOAP4R 安装
+gem install soap4r --include-dependencies
+
+3) SOAP4R 服务  : 2中类型服务
+* 基于 CGI/FastCGI 服务 (SOAP::RPC::CGIStub)
+* 独立服务 (SOAP::RPC:StandaloneServer)
+
+4) 实现步骤： 服务器
+* 第1步 - 继承SOAP::RPC::StandaloneServer
+```
+class MyServer < SOAP::RPC::StandaloneServer
+  code ...
+end
+```
+>注意：如果你要编写一个基于FastCGI的服务器，那么你需要继承 SOAP::RPC::CGIStub 类。
+
+* 第二步 - 定义处理方法
+```
+class MyServer < SOAP::RPC::StandaloneServer
+   ...............
+ 
+   # 处理方法
+   def add(a, b)
+      return a + b
+   end
+   def div(a, b) 
+      return a / b 
+   end
+end
+```
+* 第三步 - 公布处理方法 (initialize方法是公开的，用于外部的连接：)
+```
+class MyServer < SOAP::RPC::StandaloneServer
+   def initialize(*args)
+      add_method(receiver, methodName, *paramArg)
+   end
+end
+```
+```
+参数        描述
+receiver    包含方法名的方法的对象。 如果你在同一个类中定义服务方法，该参数为 self。
+methodname  调用 RPC 请求的方法名。
+paramArg    参数名和参数模式
+```
+>inout 和 out 参数，考虑以下服务方法，需要输入两个参数:inParam 和 inoutParam，函数执行完成后返回三个值：retVal、inoutParam 、outParam:
+```
+def aMeth(inParam, inoutParam)
+   retVal = inParam + inoutParam
+   outParam = inParam . inoutParam
+   inoutParam = inParam * inoutParam
+   return retVal, inoutParam, outParam
+end
+``` 
+
+调用：
+```
+add_method(self, 'aMeth', [
+    %w(in inParam),
+    %w(inout inoutParam),
+    %w(out outParam),
+    %w(retval return)
+])
+```
+* 第四步 - 开启服务
+```
+myServer = MyServer.new('ServerName',
+                        'urn:ruby:ServiceName', hostname, port)
+ 
+myServer.start
+```
+```
+参数        描述
+ServerName  服务名，你可以取你喜欢的
+urn:ruby:ServiceName  Here urn:ruby 是固定的，但是你可以为你的服务取一个唯一的 ServiceName
+hostname  指定主机名
+port  web 服务端口
+```
+```
+require "soap/rpc/standaloneserver"
+ 
+begin
+   class MyServer < SOAP::RPC::StandaloneServer
+ 
+      # Expose our service
+      def initialize(*args)
+         add_method(self, 'add', 'a', 'b')
+         add_method(self, 'div', 'a', 'b')
+      end
+ 
+      # Handler methods
+      def add(a, b)
+         return a + b
+      end
+      def div(a, b) 
+         return a / b 
+      end
+  end
+  server = MyServer.new("MyServer", 
+            'urn:ruby:calculation', 'localhost', 8080)
+  trap('INT){
+     server.shutdown
+  }
+  server.start
+rescue => err
+  puts err.message
+end
+
+然后启动服务：
+ruby MyServer.rb &
+```
 
 25、ruby上面多线程的使用过程
 
@@ -410,6 +525,11 @@ obj = JSON.parse(json)
  
 pp obj
 ```
+
+5）客户端
+
+
+
 
 27、RubyGems
 1> 包管理器 ： 提供一个分发ruby程序和库的标准格式； 提供管理程序安装的工具
