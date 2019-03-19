@@ -88,7 +88,7 @@
 <meta property="og:description" content="git工具 遇到的问题 1、经常，我们git管理的项目目录下还会有一个git项目， 这个时候我们上传到github上，展示不出来文件夹，所以要将子目录下面的.git 文件夹以及里面的文件删除掉； 但是，这个时候github上还是没有展示文件夹而是打不开的文件。PS： 很可能是因为缓存的问题，也就是没有更新到，—— 这个时候就需要删除掉缓存了；执行命令：  git rm -r –cache “文件夹">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/asset/Snip20190318_1.png">
-<meta property="og:updated_time" content="2019-03-18T08:40:11.544Z">
+<meta property="og:updated_time" content="2019-03-19T05:10:01.698Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git ~ 代码管理工具">
 <meta name="twitter:description" content="git工具 遇到的问题 1、经常，我们git管理的项目目录下还会有一个git项目， 这个时候我们上传到github上，展示不出来文件夹，所以要将子目录下面的.git 文件夹以及里面的文件删除掉； 但是，这个时候github上还是没有展示文件夹而是打不开的文件。PS： 很可能是因为缓存的问题，也就是没有更新到，—— 这个时候就需要删除掉缓存了；执行命令：  git rm -r –cache “文件夹">
@@ -239,6 +239,16 @@
               <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
             
             resume
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-book-shelf">
+          <a href="/book-shelf" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            book-shelf
           </a>
         </li>
       
@@ -447,7 +457,17 @@
 <p>git init 初始化一个仓库, 会自动生成一个.git 目录<br>git init newrepo 指定目录作为仓库<br>git add *.c<br>git add README<br>git commit -m ‘初始化项目版本’</p>
 </blockquote>
 <p>git 拷贝项目<br>git clone <repo>  克隆到当目录下<br>git clone <repo> <directory>  克隆到指定的目录 repo :git 仓库 directory： 克隆到这里的目录</directory></repo></repo></p>
-<p>7、git的基本操作<br><a href="http://www.runoob.com/git/git-basic-operations.html" target="_blank" rel="noopener">http://www.runoob.com/git/git-basic-operations.html</a></p>
+<p>7、git的基本操作<br>git init  创建一个仓库<br>git clone 克隆资源<br>git add 将资源添加到暂存区<br>git status 查看状态<br>git diff 命令显示已写入缓存与已修改但尚未写入缓存的改动的区别</p>
+<p>尚未缓存的改动：git diff<br>查看已缓存的改动： git diff –cached<br>查看已缓存的与未缓存的所有改动：git diff HEAD<br>显示摘要而非整个 diff：git diff –stat</p>
+<p>基本快照: git status -s<br>Git 的工作就是创建和保存你的项目的快照及与之后的快照进行对比</p>
+<p>git add 命令将想要快照的内容写入缓存区，<br>git commit 将缓存区内容添加到仓库中。 a参数可以将git add 这个步骤省略；</p>
+<ol start="8">
+<li>git reset HEAD 命令用于取消已缓存的内容。<br>简而言之，执行 git reset HEAD 以取消之前 git add 添加，但不希望包含在下一提交快照中的缓存。[就是没有跟踪到，回到了工作目录]</li>
+</ol>
+<p>9、git rm : 也就是通过git来删除里面的管理追踪<br>git rm <file><br>git rm -f <file>  ： 删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 -f<br>git rm –cached <file>  ：如果把文件从暂存区域移除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，使用 –cached 选项即可<br>git rm –r * 递归删除， 文件夹</file></file></file></p>
+<p>10、git mv<br>git mv 命令用于移动或重命名一个文件、目录、软连接。<br>git mv README  README.md</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">git commit、git push、git pull、 git fetch、git merge 的含义与区别</span><br><span class="line"></span><br><span class="line"> git commit：是将本地修改过的文件提交到本地库中；</span><br><span class="line"> git push：是将本地库中的最新信息发送给远程库；</span><br><span class="line"> git pull：是从远程获取最新版本到本地，并自动merge；</span><br><span class="line"> git fetch：是从远程获取最新版本到本地，不会自动merge；</span><br><span class="line"> git merge：是用于从指定的commit(s)合并到当前分支，用来合并两个分支；</span><br><span class="line">$ git merge -b  // 指将 b 分支合并到当前分支</span><br><span class="line">git pull 相当于 git fetch + git merge。</span><br></pre></td></tr></table></figure>
+<p>要从 Git 中移除某个文件，就必须要从已跟踪文件清单中移除，然后提交。<br>git 分支管理：<br><a href="http://www.runoob.com/git/git-branch.html" target="_blank" rel="noopener">http://www.runoob.com/git/git-branch.html</a></p>
 
       
     </div>
