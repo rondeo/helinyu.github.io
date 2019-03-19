@@ -115,8 +115,35 @@ git diff 命令显示已写入缓存与已修改但尚未写入缓存的改动�
 Git 的工作就是创建和保存你的项目的快照及与之后的快照进行对比
 
 git add 命令将想要快照的内容写入缓存区， 
-git commit 将缓存区内容添加到仓库中。
+git commit 将缓存区内容添加到仓库中。 a参数可以将git add 这个步骤省略；
 
-http://www.runoob.com/git/git-basic-operations.html
+8. git reset HEAD 命令用于取消已缓存的内容。
+简而言之，执行 git reset HEAD 以取消之前 git add 添加，但不希望包含在下一提交快照中的缓存。[就是没有跟踪到，回到了工作目录]
+
+9、git rm : 也就是通过git来删除里面的管理追踪
+git rm <file>
+git rm -f <file>  ： 删除之前修改过并且已经放到暂存区域的话，则必须要用强制删除选项 -f
+git rm --cached <file>  ：如果把文件从暂存区域移除，但仍然希望保留在当前工作目录中，换句话说，仅是从跟踪清单中删除，使用 --cached 选项即可
+git rm –r * 递归删除， 文件夹
+
+10、git mv
+git mv 命令用于移动或重命名一个文件、目录、软连接。
+git mv README  README.md
+
+```
+git commit、git push、git pull、 git fetch、git merge 的含义与区别
+
+ git commit：是将本地修改过的文件提交到本地库中；
+ git push：是将本地库中的最新信息发送给远程库；
+ git pull：是从远程获取最新版本到本地，并自动merge；
+ git fetch：是从远程获取最新版本到本地，不会自动merge；
+ git merge：是用于从指定的commit(s)合并到当前分支，用来合并两个分支；
+$ git merge -b  // 指将 b 分支合并到当前分支
+git pull 相当于 git fetch + git merge。
+```
+
+要从 Git 中移除某个文件，就必须要从已跟踪文件清单中移除，然后提交。
+git 分支管理：
+http://www.runoob.com/git/git-branch.html
 
 
