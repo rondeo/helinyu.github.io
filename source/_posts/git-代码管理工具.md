@@ -186,9 +186,10 @@ git log --decorate  看到我们的标签
 git tag -a v0.9 85fc7e7 : 给指定的店追加标签
 git tag ： 查看我们的tag
 git tag -a <tagname> -m "runoob.com标签"  //指定标签信息命令：
-git tag -s <tagname> -m "runoob.com标签"  //PGP签名标签命令：
+git tag -s <tagname> -m "runoob.com标签"  //PGP签名标签命令：t
 
 
+——————————————————————————————
 
 
 
