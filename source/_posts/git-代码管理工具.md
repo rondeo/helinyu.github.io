@@ -187,9 +187,22 @@ git tag -a v0.9 85fc7e7 : 给指定的店追加标签
 git tag ： 查看我们的tag
 git tag -a <tagname> -m "runoob.com标签"  //指定标签信息命令：
 git tag -s <tagname> -m "runoob.com标签"  //PGP签名标签命令：t
-
+git push --tag 把tag推到服务器上；
 
 ——————————————————————————————
+github （开源的公共服务器管理代码）
+git remote add [shortname] [url]  // shortname 可以是一个简单的名字， url 就是仓库的url
+github上面的配置已经来接了，通过ssh来进行验证；
+
+git remote 查看到远程的仓库
+git remote -v  查看到远程的url
+git remote rm [别名]  删除远程仓库
+
+[coding 上面配置 ，和github一样](http://www.runoob.com/git/git-remote-repo.html)
+——————————————————————————————
+Git 搭建服务器 【单间私人的仓库】
+> 必须的库： curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel 
 
 
+http://www.runoob.com/git/git-server.html
 
