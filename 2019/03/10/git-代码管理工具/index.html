@@ -88,7 +88,7 @@
 <meta property="og:description" content="git工具 遇到的问题 1、经常，我们git管理的项目目录下还会有一个git项目， 这个时候我们上传到github上，展示不出来文件夹，所以要将子目录下面的.git 文件夹以及里面的文件删除掉； 但是，这个时候github上还是没有展示文件夹而是打不开的文件。PS： 很可能是因为缓存的问题，也就是没有更新到，—— 这个时候就需要删除掉缓存了；执行命令：  git rm -r –cache “文件夹">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/asset/Snip20190318_1.png">
-<meta property="og:updated_time" content="2019-03-20T05:03:12.995Z">
+<meta property="og:updated_time" content="2019-03-20T05:51:43.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git ~ 代码管理工具">
 <meta name="twitter:description" content="git工具 遇到的问题 1、经常，我们git管理的项目目录下还会有一个git项目， 这个时候我们上传到github上，展示不出来文件夹，所以要将子目录下面的.git 文件夹以及里面的文件删除掉； 但是，这个时候github上还是没有展示文件夹而是打不开的文件。PS： 很可能是因为缓存的问题，也就是没有更新到，—— 这个时候就需要删除掉缓存了；执行命令：  git rm -r –cache “文件夹">
@@ -471,8 +471,9 @@
 <p>git branch -d <branchname> 删除本地分支<br>git push origin –delete <branchname> 删除远程分支/ 本地绑定分支也没有了</branchname></branchname></p>
 <p>——————————————————————————————<br>1、git 分支管理：<br>（Git 的分支模型称为”必杀技特性”，而正是因为它，将 Git 从版本控制系统家族里区分出来。）<br>git branch (branchname) 创建分支<br>git checkout (branchname) 切换分支<br>[当你切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。]<br>git merge 合并分支<br>git branch 列出你在本地的分支。<br>git checkout -b (branchname)创建新分支并立即切换到该分支下<br>git branch -d (branchname) 删除分支<br>git status -s 查看状态</p>
 <p>——————————————————————————————</p>
-<p>Git 查看提交历史</p>
-<p><a href="http://www.runoob.com/git/git-commit-history.html" target="_blank" rel="noopener">http://www.runoob.com/git/git-commit-history.html</a></p>
+<p>Git 查看提交历史<br>git log 查看历史<br>git log –oneline  查看历史记录的简洁的版本<br>git log –oneline –graph 用 –graph 选项，查看历史中什么时候出现了分支、合并。<br>git log –reverse –oneline  用 ‘–reverse’参数来逆向显示所有日志。<br> git log –author=名字 –oneline -5  指定用户的提交日志可以使用命令<br> git log –oneline –before={3.weeks.ago} –after={2010-04-18} –no-merges 要指定日期，可以执行几个选项：–since 和 –before，但是你也可以用 –until 和 –after。</p>
+<p>——————————————————————————————<br>git 标签</p>
+<p><a href="http://www.runoob.com/git/git-tag.html" target="_blank" rel="noopener">http://www.runoob.com/git/git-tag.html</a></p>
 
       
     </div>
