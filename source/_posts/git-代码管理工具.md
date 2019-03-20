@@ -138,12 +138,48 @@ git commit、git push、git pull、 git fetch、git merge 的含义与区别
  git pull：是从远程获取最新版本到本地，并自动merge；
  git fetch：是从远程获取最新版本到本地，不会自动merge；
  git merge：是用于从指定的commit(s)合并到当前分支，用来合并两个分支；
-$ git merge -b  // 指将 b 分支合并到当前分支
+$ git merge -b  // 指将 b 分支合到当前分支
 git pull 相当于 git fetch + git merge。
 ```
 
 要从 Git 中移除某个文件，就必须要从已跟踪文件清单中移除，然后提交。
-git 分支管理：
-http://www.runoob.com/git/git-branch.html
+
+
+git branch -d <BranchName> 删除本地分支
+git push origin --delete <BranchName> 删除远程分支/ 本地绑定分支也没有了
+
+
+——————————————————————————————
+1、git 分支管理：
+（Git 的分支模型称为"必杀技特性"，而正是因为它，将 Git 从版本控制系统家族里区分出来。）
+git branch (branchname) 创建分支
+git checkout (branchname) 切换分支
+[当你切换分支的时候，Git 会用该分支的最后提交的快照替换你的工作目录的内容， 所以多个分支不需要多个目录。]
+git merge 合并分支
+git branch 列出你在本地的分支。
+git checkout -b (branchname)创建新分支并立即切换到该分支下
+git branch -d (branchname) 删除分支
+git status -s 查看状态
+
+——————————————————————————————
+
+Git 查看提交历史
+git log 查看历史
+git log --oneline  查看历史记录的简洁的版本
+git log --oneline --graph 用 --graph 选项，查看历史中什么时候出现了分支、合并。
+git log --reverse --oneline  用 '--reverse'参数来逆向显示所有日志。
+ git log --author=名字 --oneline -5  指定用户的提交日志可以使用命令
+ git log --oneline --before={3.weeks.ago} --after={2010-04-18} --no-merges 要指定日期，可以执行几个选项：--since 和 --before，但是你也可以用 --until 和 --after。
+
+——————————————————————————————
+git 标签
+
+
+
+
+http://www.runoob.com/git/git-tag.html
+
+
+
 
 
