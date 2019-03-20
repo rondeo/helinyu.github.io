@@ -174,10 +174,19 @@ git log --reverse --oneline  用 '--reverse'参数来逆向显示所有日志。
 ——————————————————————————————
 git 标签
 
+git tag -a v1.0  :打上v1.0的标签
+```
+可以用 git tag -a v1.0 命令给最新一次提交打上（HEAD）"v1.0"的标签;
+-a 选项意为"创建一个带注解的标签"。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。 
+git tag -a 命令时，Git 会打开你的编辑器，让你写一句标签注解，就像你给提交写注解一样。
+```
+git log --decorate  看到我们的标签
 
-
-
-http://www.runoob.com/git/git-tag.html
+>如果我们忘了给某个提交打标签，又将它发布了，我们可以给它追加标签。
+git tag -a v0.9 85fc7e7 : 给指定的店追加标签
+git tag ： 查看我们的tag
+git tag -a <tagname> -m "runoob.com标签"  //指定标签信息命令：
+git tag -s <tagname> -m "runoob.com标签"  //PGP签名标签命令：
 
 
 
