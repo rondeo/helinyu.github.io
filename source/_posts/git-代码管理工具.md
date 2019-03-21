@@ -206,3 +206,10 @@ Git 搭建服务器 【单间私人的仓库】
 
 http://www.runoob.com/git/git-server.html
 
+git 帮助命令；
+git help <command name>
+man git-<command name>
+
+git show v2.5:Makefile  // 查看一些文件
+
+
