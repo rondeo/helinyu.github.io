@@ -211,5 +211,19 @@ git help <command name>
 man git-<command name>
 
 git show v2.5:Makefile  // 查看一些文件
+git show 查看当前head的更改
+
+```
+ls | wc -w是查看有多少个文件及文件夹
+ls | wc -c这个查看目录下多少个文件.
+
+如：
+wc -l filename 就是查看文件里有多少行
+wc -w filename 看文件里有多少个word。
+wc -L filename 文件里最长的那一行是多少个字。
+```
+
+
+
 
 
