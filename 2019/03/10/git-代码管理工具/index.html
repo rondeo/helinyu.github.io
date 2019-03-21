@@ -88,7 +88,7 @@
 <meta property="og:description" content="git工具 遇到的问题 1、经常，我们git管理的项目目录下还会有一个git项目， 这个时候我们上传到github上，展示不出来文件夹，所以要将子目录下面的.git 文件夹以及里面的文件删除掉； 但是，这个时候github上还是没有展示文件夹而是打不开的文件。PS： 很可能是因为缓存的问题，也就是没有更新到，—— 这个时候就需要删除掉缓存了；执行命令：  git rm -r –cache “文件夹">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/asset/Snip20190318_1.png">
-<meta property="og:updated_time" content="2019-03-20T05:51:43.939Z">
+<meta property="og:updated_time" content="2019-03-21T03:31:21.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git ~ 代码管理工具">
 <meta name="twitter:description" content="git工具 遇到的问题 1、经常，我们git管理的项目目录下还会有一个git项目， 这个时候我们上传到github上，展示不出来文件夹，所以要将子目录下面的.git 文件夹以及里面的文件删除掉； 但是，这个时候github上还是没有展示文件夹而是打不开的文件。PS： 很可能是因为缓存的问题，也就是没有更新到，—— 这个时候就需要删除掉缓存了；执行命令：  git rm -r –cache “文件夹">
@@ -473,7 +473,21 @@
 <p>——————————————————————————————</p>
 <p>Git 查看提交历史<br>git log 查看历史<br>git log –oneline  查看历史记录的简洁的版本<br>git log –oneline –graph 用 –graph 选项，查看历史中什么时候出现了分支、合并。<br>git log –reverse –oneline  用 ‘–reverse’参数来逆向显示所有日志。<br> git log –author=名字 –oneline -5  指定用户的提交日志可以使用命令<br> git log –oneline –before={3.weeks.ago} –after={2010-04-18} –no-merges 要指定日期，可以执行几个选项：–since 和 –before，但是你也可以用 –until 和 –after。</p>
 <p>——————————————————————————————<br>git 标签</p>
-<p><a href="http://www.runoob.com/git/git-tag.html" target="_blank" rel="noopener">http://www.runoob.com/git/git-tag.html</a></p>
+<p>git tag -a v1.0  :打上v1.0的标签<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">可以用 git tag -a v1.0 命令给最新一次提交打上（HEAD）&quot;v1.0&quot;的标签;</span><br><span class="line">-a 选项意为&quot;创建一个带注解的标签&quot;。 不用 -a 选项也可以执行的，但它不会记录这标签是啥时候打的，谁打的，也不会让你添加个标签的注解。 </span><br><span class="line">git tag -a 命令时，Git 会打开你的编辑器，让你写一句标签注解，就像你给提交写注解一样。</span><br></pre></td></tr></table></figure></p>
+<p>git log –decorate  看到我们的标签</p>
+<blockquote>
+<p>如果我们忘了给某个提交打标签，又将它发布了，我们可以给它追加标签。<br>git tag -a v0.9 85fc7e7 : 给指定的店追加标签<br>git tag ： 查看我们的tag<br>git tag -a <tagname> -m “runoob.com标签”  //指定标签信息命令：<br>git tag -s <tagname> -m “runoob.com标签”  //PGP签名标签命令：t<br>git push –tag 把tag推到服务器上；</tagname></tagname></p>
+</blockquote>
+<p>——————————————————————————————<br>github （开源的公共服务器管理代码）<br>git remote add [shortname] [url]  // shortname 可以是一个简单的名字， url 就是仓库的url<br>github上面的配置已经来接了，通过ssh来进行验证；</p>
+<p>git remote 查看到远程的仓库<br>git remote -v  查看到远程的url<br>git remote rm [别名]  删除远程仓库</p>
+<p><a href="http://www.runoob.com/git/git-remote-repo.html" target="_blank" rel="noopener">coding 上面配置 ，和github一样</a><br>——————————————————————————————<br>Git 搭建服务器 【单间私人的仓库】</p>
+<blockquote>
+<p>必须的库： curl-devel expat-devel gettext-devel openssl-devel zlib-devel perl-devel </p>
+</blockquote>
+<p><a href="http://www.runoob.com/git/git-server.html" target="_blank" rel="noopener">http://www.runoob.com/git/git-server.html</a></p>
+<p>git 帮助命令；<br>git help <command name=""><br>man git-<command name=""></p>
+<p>git show v2.5:Makefile  // 查看一些文件<br>git show 查看当前head的更改</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ls | wc -w是查看有多少个文件及文件夹</span><br><span class="line">ls | wc -c这个查看目录下多少个文件.</span><br><span class="line"></span><br><span class="line">如：</span><br><span class="line">wc -l filename 就是查看文件里有多少行</span><br><span class="line">wc -w filename 看文件里有多少个word。</span><br><span class="line">wc -L filename 文件里最长的那一行是多少个字。</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -625,7 +639,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -636,7 +650,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-count">17</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -647,7 +661,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
