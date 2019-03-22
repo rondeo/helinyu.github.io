@@ -22,5 +22,17 @@ wc testfile           # testfile文件的统计信息
 3 92 598 testfile       # testfile文件的行数为3、单词数92、字节数598 
 ```
 
+硬盘读取的速度
+
+
+1、内存
+2、cpu
+https://browser.geekbench.com/v4/cpu/12488036
+
+3、硬盘
+https://www.waerfa.com/benchmark-your-ssd-or-hard-disk-speed
+
+
+
 
 
