@@ -10,14 +10,30 @@ date: 2019-03-19 12:35:16
 	<font size=5 color="purple">2019 书籍</font>
 </div>
 <hr/>
+
+
+
+<div>
+<div>
+	<font size=3 color="green">四月</font>
+</div>
+
+* 情感机器  (在读)
+* 人月神话  (在读)
+* 疯传 传染 (在读)
+
+
+<br/>
+</div>
+
 <div>
 	<font size=3 color="green">三月</font>
 </div>
 
- * 增长黑客 （8） 【不用再读】
+ * 增长黑客 	（8） 【不用再读】
+ * 流量池  	(7)  【不用在读，感觉中规中矩，没有什么新颖的】
 
-
-
+* ARKit（7） 基本的科普书籍，可以快速查看
 
 
 <br/>
