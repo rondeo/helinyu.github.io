@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="laterite&#39;s blogs">
 <meta property="og:description" content="iOS 开发研究   1、ios 上面的page container1）SwipeTableView2）VTMagic 2、如何比较block， notification以及delegate消耗的资源， cpu和内存 3、内存缓存数据， 给出开发过程中数据缓存的一般逻辑结构 【开发中要去思考的】1、缓存了字符串2、缓存了字符串解析之后的对象内容； 4、本地化与国际化https://www.jia">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T14:46:30.428Z">
+<meta property="og:updated_time" content="2019-03-31T02:37:23.702Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="有待研究的内容集合">
 <meta name="twitter:description" content="iOS 开发研究   1、ios 上面的page container1）SwipeTableView2）VTMagic 2、如何比较block， notification以及delegate消耗的资源， cpu和内存 3、内存缓存数据， 给出开发过程中数据缓存的一般逻辑结构 【开发中要去思考的】1、缓存了字符串2、缓存了字符串解析之后的对象内容； 4、本地化与国际化https://www.jia">
@@ -424,6 +424,7 @@
 <p>5、 代码统计<br><a href="https://blog.csdn.net/congqingbin/article/details/78547996" target="_blank" rel="noopener">https://blog.csdn.net/congqingbin/article/details/78547996</a><br>这个管代码的行数统计</p>
 <p>6、 代码分析之后出现的问题： （种类主要是看内存）<br>dead store 变量赋值，但是没有使用<br>localizabiliity issue 这个是本地化没有处理<br>memory error  这个是内存问题<br>logic error<br>memory<br>core foundation<br>API misuse (Apple)  api 误用</p>
 <p>7、coobjc 阿里巴巴的一个iOS协程库<br><a href="https://github.com/alibaba/coobjc" target="_blank" rel="noopener">coobjc of github</a></p>
+<p>8、iOS内购测试，要通过对应的沙河测试来进行处理<br>内购支付逻辑的基本步骤：<br>1、 第一步获取产品信息，这个是从后台里面去获取的<br>2、选择对应的商品，<br>3、获取对应的商品的订单信息， 这个是从我们的服务器里面获取的；<br>4、判断这个订单是否存在，orderId， 如果存在，就接下来的工作购买<br>5、通过传入商品信息和订单号，<br>6、然后进行购买        [request start];， 购买之前先判断一下设备是否支持购买</p>
 <p>—————————————————————————————————————————————————————————————————————————</p>
 <p><font size="4" color="green">其他的 </font><br>1、一个wiki的搭建 ， 看一下自己能够搭建出来怎么样的wiki ，或者用于自己的数据库里；<br>使用dokuwiki【技术wiki】 来安装一个， 这个就是有关的处理内容；<br>[mediawiki 这个使用与其他的]</p>
 
@@ -577,7 +578,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-count">32</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
