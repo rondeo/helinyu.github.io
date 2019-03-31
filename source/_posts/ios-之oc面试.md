@@ -233,4 +233,22 @@ key: 厘清iOS系统、App、APNS（apple push notification service）服务器�
 <h2>题20：框架库构建： 你实现过一个框架或者库以供别人使用，如果有，请谈一下框架或者库时候的经验，如果没有，请设想和设计框架的public的API，并且指出大概需要如何做，需要注意一些什么方面，来使别人更加容易使用？ </h2>
 
 
+<h2>题21： iOS中的tableView和collectionView刷新的时候出现了抖动 </h2>
+```
+    [UIView performWithoutAnimation:^{
+        [self.mainTable reloadData];
+    }];
+    或者 用批量更新试一下看看
+    [self.mainTable performBatchUpdates:^{
+        [weakSelf.mainTable reloadData];
+    } completion:^(BOOL finished) {
+        
+    }];
+```
+
+
+
+
+
+
 
