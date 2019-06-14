@@ -1,7 +1,0 @@
-[!] Unable to determine Swift version for the following pods:
-
-- `RxCocoa` does not specify a Swift version and none of the targets (`StrangeAcquaintances`) integrating it have the `SWIFT_VERSION` attribute set. Please contact the author or set the `SWIFT_VERSION` attribute in at least one of the targets that integrate this pod.
-- `RxSwift` does not specify a Swift version and none of the targets (`StrangeAcquaintances`) integrating it have the `SWIFT_VERSION` attribute set. Please contact the author or set the `SWIFT_VERSION` attribute in at least one of the targets that integrate this pod.
-这个问题还没有完全解决； 这个有待进一步去查看；
-
-

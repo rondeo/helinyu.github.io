@@ -11,10 +11,10 @@ git工具
 1、经常，我们git管理的项目目录下还会有一个git项目， 这个时候我们上传到github上，展示不出来文件夹，所以要将子目录下面的.git 文件夹以及里面的文件删除掉； 但是，这个时候github上还是没有展示文件夹而是打不开的文件。
 PS： 很可能是因为缓存的问题，也就是没有更新到，
 —— 这个时候就需要删除掉缓存了；
-执行命令：
->git rm -r --cache "文件夹名称"  // 删除缓存
->git push -u origin master // 对应的分支
-
+```
+git rm -r --cache "文件夹名称"  // 删除缓存
+git push -u origin master // 对应的分支
+```
 
 2、查看某个人写的代码的数量
 git log --author="felix" --pretty=tformat: --numstat | awk '{ add += $1; subs += $2; loc += $1 - $2 } END { printf "added lines: %s, removed lines: %s, total lines: %s\n", add, subs, loc }'
@@ -77,6 +77,9 @@ git commit ：
 
 git reset HEAD：
 1）暂存区的目录树会被重写，被 master 分支指向的目录树所替换，但是工作区不受影响。
+
+git reset HEAD -filename ： 撤销指定的文件/文件夹
+git reset HEAD .  ： 针对语句git add .的撤销
 
 git rm --cached <file> ：命令时，会直接从暂存区删除文件，工作区则不做出改变。
 
