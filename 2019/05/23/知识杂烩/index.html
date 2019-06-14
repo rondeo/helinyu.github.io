@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="laterite&#39;s blogs">
 <meta property="og:description" content="1、ijkPlayer 播放器使用的时候    ·1）ijkPlayer 的内容看了一下，查看了一下参数， 这个编译的脚本要注意一下， 就是armv7 暂时没有兼容了；    ·2)ijkPlayer 这个为什么打包这么大，而我们在使用到我们的包内的时候，这么小呢？ 应该那些动态库是系统下面的动态库； 2、红点的逻辑处理    ·1） 从项目的对应接口返回    ·2）树形结构进行统一处理 （悦动">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-23T12:36:57.419Z">
+<meta property="og:updated_time" content="2019-05-24T02:36:31.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="知识杂烩">
 <meta name="twitter:description" content="1、ijkPlayer 播放器使用的时候    ·1）ijkPlayer 的内容看了一下，查看了一下参数， 这个编译的脚本要注意一下， 就是armv7 暂时没有兼容了；    ·2)ijkPlayer 这个为什么打包这么大，而我们在使用到我们的包内的时候，这么小呢？ 应该那些动态库是系统下面的动态库； 2、红点的逻辑处理    ·1） 从项目的对应接口返回    ·2）树形结构进行统一处理 （悦动">
@@ -431,6 +431,13 @@
 </blockquote>
 <p>6、<br>BTServer：负责蓝牙<br>SpringBoard：负责界面<br>可以看到一个是负责蓝牙服务，一个是负责蓝牙界面；</p>
 <p>7、音频交换格式：<br>AIFF是音频交换文件格式（Audio Interchange File Format）的英文缩写，是一种文件格式存储的数字音频（波形）的数据，AIFF应用于个人电脑及其它电子音响设备以存储音乐数据。AIFF支持ACE2、ACE8、MAC3和MAC6压缩，支持16位44.1kHz立体声。用iTunes播放。</p>
+<p>8、图片上传<br>1.1、图片上传操作 </p>
+<pre><code># 1）单张图片上传
+# 2）多张图片上传 2.1）串行方式上传 2.2）并行方式上传
+</code></pre><p>1.2、 拍照的图片一定要是写进入本地之后再进行获取<br>相册以及图片编辑之后的处理，这里是需要怎么样进行处理的？<br>·1）拍照，图片编辑之后，都是需要写到相册里面，然后再进行获取最新的，使用 TZImage 这个库，也可以使用QMUIAsset这库来进行实现，不过QMUIAsset 这个库好像并不是很好使用；<br>2）图片编辑的也有相应的库  <a href="https://github.com/helinyu/TZImagePickerController" target="_blank" rel="noopener">https://github.com/helinyu/TZImagePickerController</a> （获取图片并且剪辑）<br>3) <a href="https://github.com/helinyu/ZMJImageEditor" target="_blank" rel="noopener">https://github.com/helinyu/ZMJImageEditor</a> 图片编辑等等进行处理的过程  （周末需要详细进行查看）</p>
+<p>9、ios中开发使用到的NSTimer，尽量换一个定时器，github有个dispatch_source方式的定时器</p>
+<p>10.ping <a href="http://www.baidu.com" target="_blank" rel="noopener">www.baidu.com</a><br>64 bytes from 14.215.177.39: icmp_seq=1 ttl=56 time=6.090 ms<br>这里面的关键字详细理解</p>
+<p>11、 如何有效的学习开源项目<br><a href="https://www.zhihu.com/question/19637879" target="_blank" rel="noopener">https://www.zhihu.com/question/19637879</a></p>
 
       
     </div>
@@ -508,6 +515,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/06/14/编程语言研究/" rel="prev" title="编程语言研究">
+                编程语言研究 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -578,7 +589,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">33</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -589,7 +600,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">17</span>
+                  <span class="site-state-item-count">18</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -600,7 +611,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">19</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
